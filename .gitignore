@@ -1,5 +1,5 @@
 # adding conditionaly
-/webpack.config.js
+webpack.config.js
 # adding conditionaly
 ###> symfony/framework-bundle ###
 /.env.local
