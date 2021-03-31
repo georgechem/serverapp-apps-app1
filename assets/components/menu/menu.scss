@@ -1,0 +1,53 @@
+$bp-mobile: 2400px;
+
+@media(max-width: $bp-mobile){
+  .nav {
+    &__button{
+      left: 10px;
+      top: 0;
+      position: fixed;
+      font-size: 2rem;
+      color: #8dd;
+      &__icon{
+        cursor: pointer;
+      }
+    }
+    &__mobile{
+      border-radius: 0 10px 10px 0;
+      padding: 10px;
+      background-color: #aaa;
+      margin-top: 5px;
+      width:260px;
+      &__list{
+        list-style: none;
+        &__item{
+          text-align: center;
+          margin: 10px;
+          &__link{
+            text-decoration: none;
+            color: #333;
+          }
+          &__btn{
+            background-color: #ccc;
+            cursor: pointer;
+            border: 2px solid black;
+            border-radius: 50%;
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+
+@media(min-width: $bp-mobile){
+  .nav__button {
+    display: none;
+    visibility: hidden;
+  }
+
+}
+
+
