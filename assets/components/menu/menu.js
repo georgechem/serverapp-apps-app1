@@ -7,4 +7,5 @@ $('#nav-button').on('click', (e)=>{
 $('#nav-close').on('click', ()=>{
     $('#nav-mobile').slideToggle();
     $('#nav-button').show();
+
 });
