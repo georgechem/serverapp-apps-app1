@@ -25,7 +25,7 @@ Styles for Mobile navigation
       list-style: none;
       &__item{
         text-align: center;
-        margin: 10px;
+        margin: 20px 10px;
         &__link{
           text-decoration: none;
           color: #ccc;
@@ -74,8 +74,9 @@ Styles for desktop navigation
   &__desktop{
     background-color: #222;
     display: flex;
+    justify-content: start;
     &__item{
-      margin: 10px;
+      margin: 10px 20px;
       &__link{
         text-decoration: none;
         color: #ddd;
@@ -83,3 +84,4 @@ Styles for desktop navigation
     }
   }
 }
+
