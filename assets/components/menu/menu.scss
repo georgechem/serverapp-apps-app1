@@ -1,7 +1,11 @@
+// screen breakpoint
 $bp-mobile: 1399px;
-
+/**
+Styles for Mobile navigation
+ */
 @media(max-width: $bp-mobile){
   .nav {
+    // mobile menu button
     &__button{
       left: 10px;
       top: 0;
@@ -27,6 +31,7 @@ $bp-mobile: 1399px;
             text-decoration: none;
             color: #ccc;
           }
+          // close button
           &__btn{
             color:white;
             opacity: 0.7;
@@ -41,6 +46,9 @@ $bp-mobile: 1399px;
     }
   }
 }
+/**
+Hide mobile menu button at certain resolution
+ */
 @media(min-width: $bp-mobile){
   .nav{
     &__button{
@@ -49,6 +57,9 @@ $bp-mobile: 1399px;
     }
   }
 }
+/**
+Hide desktop nav at certain resolution
+ */
 @media(max-width: ($bp-mobile)){
   .nav{
     &__desktop{
