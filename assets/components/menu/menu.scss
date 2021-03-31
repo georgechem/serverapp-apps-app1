@@ -1,5 +1,5 @@
 // screen breakpoint
-$bp-mobile: 399px;
+$bp-mobile: 699px;
 /**
 Styles for Mobile navigation
  */
@@ -70,3 +70,16 @@ Hide desktop nav at certain resolution
 /**
 Styles for desktop navigation
  */
+.nav{
+  &__desktop{
+    background-color: #222;
+    display: flex;
+    &__item{
+      margin: 10px;
+      &__link{
+        text-decoration: none;
+        color: #ddd;
+      }
+    }
+  }
+}
