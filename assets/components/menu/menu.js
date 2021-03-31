@@ -5,6 +5,6 @@ $('#nav-button').on('click', (e)=>{
     $('#nav-mobile').slideToggle();
 });
 $('#nav-close').on('click', ()=>{
-    $('#nav-mobile').fadeToggle();
+    $('#nav-mobile').slideToggle();
     $('#nav-button').show();
 });
