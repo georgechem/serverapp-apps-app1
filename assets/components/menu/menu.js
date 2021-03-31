@@ -13,13 +13,14 @@ Function that read menu Links from backend
  */
 const menuDesktop = document.querySelectorAll('.nav__desktop__list > li > a');
 const menuMobile = document.querySelectorAll('.nav__mobile__list >li > a');
-const linksText = ['home5', 'link12','link2', 'link3'];
+const linksText = ['home', 'link1','link2', 'link3'];
 
 /*
 Function Responsible for loading Menu link from variable
  */
 function generateLinkText(element, linkText){
-    element.innerHTML = linkText;
+
+    element.innerHTML = linkText.toUpperCase();
 }
 
 menuDesktop.forEach((menuItem, key)=>{
