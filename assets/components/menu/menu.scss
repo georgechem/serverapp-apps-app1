@@ -1,4 +1,4 @@
-$bp-mobile: 2400px;
+$bp-mobile: 1399px;
 
 @media(max-width: $bp-mobile){
   .nav {
@@ -40,16 +40,21 @@ $bp-mobile: 2400px;
       }
     }
   }
-
 }
-
-
 @media(min-width: $bp-mobile){
-  .nav__button {
-    display: none;
-    visibility: hidden;
+  .nav{
+    &__button{
+      display: none;
+      visibility: hidden;
+    }
   }
-
 }
-
+@media(max-width: ($bp-mobile)){
+  .nav{
+    &__desktop{
+      display: none;
+      visibility: hidden;
+    }
+  }
+}
 
