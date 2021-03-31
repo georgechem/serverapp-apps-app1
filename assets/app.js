@@ -13,3 +13,8 @@ import './bootstrap';
 
 const $ = require('jquery');
 
+/**
+ * Components
+ */
+import './components/menu/menu';
+import './components/menu/menu.scss';
