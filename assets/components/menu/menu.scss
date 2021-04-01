@@ -3,6 +3,7 @@ $bp-mobile: 699px;
 /**
 Styles for Mobile navigation
  */
+
 .nav {
   // mobile menu button
   &__button{
@@ -23,11 +24,16 @@ Styles for Mobile navigation
     margin-top: 5px;
     width:260px;
     &__list{
+      & > li >i {
+        transform: rotate(-90deg);
+        cursor:pointer;
+      }
       list-style: none;
       text-align: center;
       &__item{
         text-align: center;
         margin: 20px auto;
+        color: white;
         &__search{
           margin: 10px;
           outline: none;
@@ -114,6 +120,10 @@ Styles for desktop navigation
       display: flex;
       justify-content: space-around;
       list-style: none;
+      & > li > i {
+        cursor: pointer;
+        transform: rotate(-90deg);
+      }
       &__item{
         margin: 10px 20px;
         &__link{
