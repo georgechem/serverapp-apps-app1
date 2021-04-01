@@ -2,16 +2,32 @@ const $ = require('jquery');
 // click on Mobile menu button
 $('#nav-button').on('click', (e)=>{
     $(e.currentTarget).hide();
-    $('#nav-mobile').animate({
-        left: '+=270'
-    },400);
+    const mobileMenuToLeft = document.getElementsByClassName('nav__mobile');
+    mobileMenuToLeft[0].animate([
+            {transform: 'translateX(0px)'}
+        ],
+        {
+            duration:500,
+            iterations: 1,
+        }).finished.then(() =>{
+        mobileMenuToLeft[0].style.transform = 'translateX(0px)';
+    })
+
 });
 // click on mobile menu close button
 $('#nav-close').on('click', ()=>{
     $('#nav-button').show();
-    $('#nav-mobile').animate({
-        left: '-=270'
-    },400);
+    const mobileMenuToLeft = document.getElementsByClassName('nav__mobile');
+    mobileMenuToLeft[0].animate([
+        {transform: 'translateX(-300px)'}
+    ],
+        {
+            duration:500,
+            iterations: 1,
+        }).finished.then(() =>{
+            mobileMenuToLeft[0].style.transform = 'translateX(-300px)';
+    })
+
 });
 /*
 Function that read menu Links from backend

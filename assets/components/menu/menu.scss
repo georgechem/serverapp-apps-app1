@@ -17,15 +17,15 @@ Styles for Mobile navigation
     }
   }
   &__mobile{
-    position: fixed;
+    //position: fixed;
+    //transform: translateX(-300px);
     padding: 10px;
     background-color: #222;
-    height: 100vh;
+    min-height: 100vh;
     width:260px;
-    left:-270px;
     &__list{
       & > li >i {
-        margin-right: 10px;
+        margin-right: 20px;
         transform: rotate(-90deg);
         cursor:pointer;
       }
