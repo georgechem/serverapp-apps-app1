@@ -109,9 +109,6 @@ subLinksMobile.forEach((subLinkMobile, key)=>{
         });
         const currentTextAfter = e.currentTarget.style.cssText
 
-        console.log(currentText);
-        console.log(currentTextAfter);
-
         if(currentTextAfter === currentText || currentText === ''){
             e.target.style.transform = "rotate(0deg)";
             nextSubElement.classList.remove('subNav__mobile__hide');
