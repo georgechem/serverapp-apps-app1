@@ -118,6 +118,7 @@ subLinksMobile.forEach((subLinkMobile, key)=>{
         if(currentTextAfter === currentText || currentText === ''){
             e.target.style.transform = "rotate(0deg)";
             nextSubElement.classList.remove('subNav__mobile__hide');
+            // animate element height
         }
 
 
