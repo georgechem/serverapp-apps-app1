@@ -71,26 +71,39 @@ subLinks.forEach((subLink, key)=>{
 
 });
 
-// sub mobile menu
+// listeners on buttons
 const subLinksMobile = document.querySelectorAll('.nav__mobile__list >li > i');
-let subMenuMobileStatus = false;
+const mainLinksMobile = document.querySelectorAll('.nav__mobile__list > li > a');
+let wasOpenedLast = [];
+const navMobileLinks = document.querySelectorAll('.nav__mobile > ul > li > ul');
 subLinksMobile.forEach((subLinkMobile, key)=>{
 
+    mainLinksMobile[key].addEventListener('click',(e)=>{
+        e.preventDefault();
+    });
+
+    const nextSubElement = subLinkMobile.nextElementSibling.nextElementSibling;
+
     subLinkMobile.addEventListener('click',(e)=> {
+        // close all submenus and restore carets and set subMenuMobileStatus
+        navMobileLinks.forEach((subMenu,key)=>{
+            subMenu.classList.add('subNav__mobile__hide');
+            subLinksMobile[key].style.transform = "rotate(-90deg)";
+        });
 
-        const nextSubElement = subLinkMobile.nextElementSibling.nextElementSibling;
+        console.log(navMobileLinks);
 
-        if (!subMenuMobileStatus) {
-            e.target.style.transform = "rotate(0deg)";
-            nextSubElement.classList.remove('subNav__mobile__hide');
-            subMenuMobileStatus = true;
 
-        } else {
-            e.target.style.transform = "rotate(-90deg)";
-            nextSubElement.classList.add('subNav__mobile__hide');
-            subMenuMobileStatus = false;
 
-        }
+        e.target.style.transform = "rotate(0deg)";
+        nextSubElement.classList.remove('subNav__mobile__hide');
+
+        wasOpenedLast = [];
+
+
+
+
+
 
     });
 
