@@ -3,6 +3,7 @@ const $ = require('jquery');
 $('#nav-button').on('click', (e)=>{
     $(e.currentTarget).hide();
     const mobileMenuToLeft = document.getElementsByClassName('nav__mobile');
+    // Slide Right Sub Menu - VISIBLE
     mobileMenuToLeft[0].animate([
             {transform: 'translateX(0px)'}
         ],
@@ -17,6 +18,7 @@ $('#nav-button').on('click', (e)=>{
 // click on mobile menu close button
 $('#nav-close').on('click', ()=>{
     $('#nav-button').show();
+    // Slide Left Sub Menu - HIDDEN
     const mobileMenuToLeft = document.getElementsByClassName('nav__mobile');
     mobileMenuToLeft[0].animate([
         {transform: 'translateX(-300px)'}
@@ -59,6 +61,7 @@ subLinks.forEach((subLink, key)=>{
 
     subLink.addEventListener('click',(e)=>{
         const nextElement = subLink.nextElementSibling;
+        // Open Sub Menu in Desktop Mode
         if(!subMenuStatus){
             e.target.style.transform = "rotate(0deg)";
             nextElement.animate([
@@ -72,6 +75,7 @@ subLinks.forEach((subLink, key)=>{
             subMenuStatus = true;
 
         }else{
+            // Close Sub Menu in Desktop Mode
             e.target.style.transform = "rotate(-90deg)";
             nextElement.animate([
                 {transform: 'translateY(-380px)'}
@@ -90,25 +94,27 @@ subLinks.forEach((subLink, key)=>{
 // listeners on buttons
 const subLinksMobile = document.querySelectorAll('.nav__mobile__list >li > i');
 const mainLinksMobile = document.querySelectorAll('.nav__mobile__list > li > a');
-let wasOpenedLast = [];
 const navMobileLinks = document.querySelectorAll('.nav__mobile > ul > li > ul');
 subLinksMobile.forEach((subLinkMobile, key)=>{
-
+    // Main Links in Menu are Rather Headers - Not Clickable
     mainLinksMobile[key].addEventListener('click',(e)=>{
         e.preventDefault();
     });
-
+    // Get NEXT -> NEXT element
     const nextSubElement = subLinkMobile.nextElementSibling.nextElementSibling;
 
     subLinkMobile.addEventListener('click',(e)=> {
         // close all submenus and restore carets and set subMenuMobileStatus
         const currentText = e.currentTarget.style.cssText;
+        // Close all sub Menus
         navMobileLinks.forEach((subMenu,key)=>{
+            // add hide class to every Sub Menu
             subMenu.classList.add('subNav__mobile__hide');
             subLinksMobile[key].style.transform = "rotate(-90deg)";
         });
         const currentTextAfter = e.currentTarget.style.cssText
-
+        // Show only Clicked Category if Clicked First in a Row
+        // otherwise Close Sub menu
         if(currentTextAfter === currentText || currentText === ''){
             e.target.style.transform = "rotate(0deg)";
             nextSubElement.classList.remove('subNav__mobile__hide');
