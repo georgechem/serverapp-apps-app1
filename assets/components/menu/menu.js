@@ -119,6 +119,15 @@ subLinksMobile.forEach((subLinkMobile, key)=>{
             e.target.style.transform = "rotate(0deg)";
             nextSubElement.classList.remove('subNav__mobile__hide');
             // animate element height
+            nextSubElement.animate([
+                {maxHeight: '1px'},
+                {maxHeight: '500px'}
+            ],{
+                duration: 400,
+                iterations: 1
+            }).finished.then(() => {
+                nextSubElement.style.maxHeight = '500px';
+            });
         }
 
 
