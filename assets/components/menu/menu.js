@@ -97,8 +97,10 @@ const mainLinksMobile = document.querySelectorAll('.nav__mobile__list > li > a')
 const navMobileLinks = document.querySelectorAll('.nav__mobile > ul > li > ul');
 subLinksMobile.forEach((subLinkMobile, key)=>{
     // Main Links in Menu are Rather Headers - Not Clickable
-    mainLinksMobile[key].addEventListener('click',(e)=>{
-        e.preventDefault();
+    mainLinksMobile.forEach((mainLinkMobile)=>{
+        mainLinkMobile.addEventListener('click',(e)=>{
+            e.preventDefault();
+        });
     });
     // Get NEXT -> NEXT element
     const nextSubElement = subLinkMobile.nextElementSibling.nextElementSibling;
