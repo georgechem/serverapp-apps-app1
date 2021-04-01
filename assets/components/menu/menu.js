@@ -86,19 +86,22 @@ subLinksMobile.forEach((subLinkMobile, key)=>{
 
     subLinkMobile.addEventListener('click',(e)=> {
         // close all submenus and restore carets and set subMenuMobileStatus
+        const currentText = e.currentTarget.style.cssText;
         navMobileLinks.forEach((subMenu,key)=>{
             subMenu.classList.add('subNav__mobile__hide');
             subLinksMobile[key].style.transform = "rotate(-90deg)";
         });
+        const currentTextAfter = e.currentTarget.style.cssText
 
-        console.log(navMobileLinks);
+        console.log(currentText);
+        console.log(currentTextAfter);
+
+        if(currentTextAfter === currentText || currentText === ''){
+            e.target.style.transform = "rotate(0deg)";
+            nextSubElement.classList.remove('subNav__mobile__hide');
+        }
 
 
-
-        e.target.style.transform = "rotate(0deg)";
-        nextSubElement.classList.remove('subNav__mobile__hide');
-
-        wasOpenedLast = [];
 
 
 
