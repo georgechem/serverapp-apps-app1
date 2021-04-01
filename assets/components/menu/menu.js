@@ -34,3 +34,41 @@ menuDesktop.forEach((menuItem, key)=>{
 menuMobile.forEach((menuItem, key)=>{
     generateLinkText(menuItem, linksText[key]);
 });
+// ------------ Sub nav
+// get links to sub menu
+const subLinks = document.querySelectorAll('.nav__desktop__list > li > i');
+// add listener on each link
+let subMenuStatus = false;
+subLinks.forEach((subLink, key)=>{
+
+    subLink.addEventListener('click',(e)=>{
+        const nextElement = subLink.nextElementSibling;
+        if(!subMenuStatus){
+            e.target.style.transform = "rotate(0deg)";
+            nextElement.animate([
+                {transform: 'translateY(380px)'}
+            ],{
+                duration: 300,
+                iterations: 1,
+            }).finished.then(() => {
+                nextElement.style.transform = 'translateY(380px)';
+            });
+            subMenuStatus = true;
+
+        }else{
+            e.target.style.transform = "rotate(-90deg)";
+            nextElement.animate([
+                {transform: 'translateY(-380px)'}
+            ],{
+                duration: 300,
+                iterations: 1,
+            }).finished.then(() => {
+                nextElement.style.transform = 'translateY(-380px)';
+            });
+            subMenuStatus = false;
+        }
+    });
+
+});
+
+// animate element

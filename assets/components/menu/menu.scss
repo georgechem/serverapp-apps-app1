@@ -85,6 +85,7 @@ Hide desktop nav at certain resolution
       &__list{
         list-style: none;
         &__item{
+          position: relative;
           text-align: center;
           margin: 20px 10px;
           &__link{
@@ -146,3 +147,26 @@ Styles for desktop navigation
   }
 }
 
+.subNav {
+  &__desktop{
+    background-color: #444;
+    padding: 10px;
+    color: #ccc;
+    max-height: 320px;
+    min-width: 160px;
+    top:-320px;
+    list-style: none;
+    z-index: 1;
+    position: absolute;
+    &__item{
+      margin: 10px;
+      text-align: center;
+      &__link{
+        font-size: 0.9rem;
+        text-decoration: none;
+        color: #ccc;
+      }
+    }
+  }
+
+}
