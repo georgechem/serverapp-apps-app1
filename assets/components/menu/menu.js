@@ -71,4 +71,27 @@ subLinks.forEach((subLink, key)=>{
 
 });
 
-// animate element
+// sub mobile menu
+const subLinksMobile = document.querySelectorAll('.nav__mobile__list >li > i');
+let subMenuMobileStatus = false;
+subLinksMobile.forEach((subLinkMobile, key)=>{
+
+    subLinkMobile.addEventListener('click',(e)=> {
+
+        const nextSubElement = subLinkMobile.nextElementSibling.nextElementSibling;
+
+        if (!subMenuMobileStatus) {
+            e.target.style.transform = "rotate(0deg)";
+            nextSubElement.classList.remove('subNav__mobile__hide');
+            subMenuMobileStatus = true;
+
+        } else {
+            e.target.style.transform = "rotate(-90deg)";
+            nextSubElement.classList.add('subNav__mobile__hide');
+            subMenuMobileStatus = false;
+
+        }
+
+    });
+
+});

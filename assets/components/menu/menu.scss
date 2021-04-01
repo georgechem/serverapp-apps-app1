@@ -168,5 +168,26 @@ Styles for desktop navigation
       }
     }
   }
+}
 
+.subNav {
+  &__mobile{
+    background-color: #333;
+    padding: 10px;
+    color: #ccc;
+    list-style: none;
+    &__item{
+      margin: 10px;
+      text-align: center;
+      &__link{
+        font-size: 0.9rem;
+        text-decoration: none;
+        color: #ccc;
+      }
+    }
+    &__hide{
+      display: none;
+      visibility: hidden;
+    }
+  }
 }
