@@ -25,6 +25,7 @@ Styles for Mobile navigation
     left:-270px;
     &__list{
       & > li >i {
+        margin-right: 10px;
         transform: rotate(-90deg);
         cursor:pointer;
       }
@@ -32,7 +33,8 @@ Styles for Mobile navigation
       text-align: center;
       &__item{
         text-align: center;
-        margin: 20px auto;
+        margin: 25px auto;
+        font-size: 1.2rem;
         color: white;
         &__search{
           margin: 10px;

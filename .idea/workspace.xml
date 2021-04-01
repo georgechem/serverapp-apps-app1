@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3cf66441-0f0c-46c0-b7d2-caa3439d480c" name="Default Changelist" comment="ok">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/components/menu/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/menu/menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/components/menu/menu.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/menu/menu.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -323,7 +323,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617303536013</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="working">
+      <created>1617305171800</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1617305171800</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -345,7 +352,8 @@
     <MESSAGE value="jquery" />
     <MESSAGE value="ok" />
     <MESSAGE value="last ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="last ok" />
+    <MESSAGE value="working" />
+    <option name="LAST_COMMIT_MESSAGE" value="working" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
