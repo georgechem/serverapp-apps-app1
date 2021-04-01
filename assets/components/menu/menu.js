@@ -1,12 +1,17 @@
 const $ = require('jquery');
-$('#nav-mobile').hide();
+// click on Mobile menu button
 $('#nav-button').on('click', (e)=>{
     $(e.currentTarget).hide();
-    $('#nav-mobile').slideToggle();
+    $('#nav-mobile').animate({
+        left: '+=270'
+    },400);
 });
+// click on mobile menu close button
 $('#nav-close').on('click', ()=>{
-    $('#nav-mobile').slideToggle();
     $('#nav-button').show();
+    $('#nav-mobile').animate({
+        left: '-=270'
+    },400);
 });
 /*
 Function that read menu Links from backend
