@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3cf66441-0f0c-46c0-b7d2-caa3439d480c" name="Default Changelist" comment="ok">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/components/menu/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/menu/menu.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/components/puzzleGame/board.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/puzzleGame/board.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/styles/puzzleGame.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/puzzleGame.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/puzzle_game/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/puzzle_game/index.html.twig" afterDir="false" />
@@ -454,7 +453,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617383356703</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="ok">
+      <created>1617384069713</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1617384069713</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
