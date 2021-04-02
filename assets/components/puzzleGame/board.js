@@ -62,8 +62,46 @@ pieces.forEach((piece)=>{
         matrix.forEach((coordinates) => {
             //console.log(board[coordinates[0]][coordinates[1]]);
             //console.log(coordinates);
-            if(board[[coordinates[0]][coordinates[1]]] < 0){
+            if(board[coordinates[0]][coordinates[1]] < 0){
+
+                // position to move ex: [2,2]
                 console.log(coordinates);
+                // need read of position where clicked
+                // value checked -1 so the piece clicked
+                // is already direct neighbour of place to move
+                // -- so only direction for move is needed
+                const shiftLeft = parseInt(piece.style.left);
+                const shiftTop = parseInt(piece.style.top);
+                // set coordinates of clicked point
+                let x = 0;
+                let y = 0;
+                // set x
+                if(shiftLeft < 80){
+                    x = 0;
+                }
+                else if(shiftLeft > 80 && shiftLeft < 170){
+                    x = 1;
+                }
+                else if(shiftLeft >170){
+                    x = 2;
+                }
+                // set y
+                if(shiftTop < 80){
+                    y = 0;
+                }
+                else if(shiftTop > 80 && shiftTop < 170){
+                    y = 1;
+                }
+                else if(shiftTop > 170){
+                    y = 2;
+                }
+                const currentCoordinates = [x, y];
+                const dX = coordinates[0] - currentCoordinates[0];
+                const dY = coordinates[1] - currentCoordinates[1];
+                // if dX > 0 move RIGHT, if dY > 0 move DOWN
+                // has direction - so update virtual Board
+
+                console.log(dX, dY);
             }
         });
 
