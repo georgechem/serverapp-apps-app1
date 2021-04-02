@@ -8,7 +8,11 @@
 
 {% block body %}
     <main class="puzzle">
-        1
+        {% for i in range(1,8) %}
+            <div id="piece{{ i }}" class="puzzle__piece">
+                {{ i }}
+            </div>
+        {% endfor %}
     </main>
 
 {% endblock %}

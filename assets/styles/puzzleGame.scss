@@ -4,6 +4,17 @@ body {
 
 .puzzle{
   margin: 0 auto;
-  width:240px;
+  width:280px;
   background-color: #AAAAAA;
+  position: relative;
+  //display: flex;
+  //flex-wrap: wrap;
+  &__piece{
+    position: absolute;
+    border: 1px solid red;
+    min-width:80px;
+    min-height: 80px;
+    left: 1px;
+    top: 1px;
+  }
 }
