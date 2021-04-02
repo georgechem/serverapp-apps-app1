@@ -402,7 +402,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617355988039</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="colors adjusted">
+      <created>1617362814378</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1617362814378</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -428,7 +435,8 @@
     <MESSAGE value="all mobile menu works perfect" />
     <MESSAGE value="submenu links error fixed" />
     <MESSAGE value="ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="ok" />
+    <MESSAGE value="colors adjusted" />
+    <option name="LAST_COMMIT_MESSAGE" value="colors adjusted" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

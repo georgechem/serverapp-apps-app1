@@ -54,6 +54,23 @@ menuMobile.forEach((menuItem, key)=>{
 });
 // ------------ Sub nav
 function expandSubMenu(subLink){
+
+    let animMouseOn = null;
+    subLink.addEventListener('mouseenter',(e)=>{
+        animMouseOn = e.target.animate([
+            {transform: 'rotate(270deg)'},
+
+        ],{
+            duration:1500,
+            iterations: Infinity
+        })
+
+    });
+
+    subLink.addEventListener('mouseleave',(e)=>{
+        animMouseOn.cancel();
+    });
+
     subLink.addEventListener('click',(e)=>{
         const currentText = e.currentTarget.style.cssText;
         // hide all submenus
