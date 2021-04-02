@@ -100,6 +100,8 @@ pieces.forEach((piece)=>{
                 const dY = coordinates[1] - currentCoordinates[1];
                 // if dX > 0 move RIGHT, if dY > 0 move DOWN
                 // has direction - so update virtual Board
+                // update board with new data
+                // copy all values to board[][]
                 console.log(coordinates, x, y);
                 // update screen
                 // move RIGHT so left: +85px;
