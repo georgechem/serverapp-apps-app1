@@ -65,7 +65,7 @@ pieces.forEach((piece)=>{
             if(board[coordinates[0]][coordinates[1]] < 0){
 
                 // position to move ex: [2,2]
-                console.log(coordinates);
+                //console.log(coordinates);
                 // need read of position where clicked
                 // value checked -1 so the piece clicked
                 // is already direct neighbour of place to move
@@ -76,20 +76,20 @@ pieces.forEach((piece)=>{
                 let x = 0;
                 let y = 0;
                 // set x
-                if(shiftLeft < 80){
+                if(shiftLeft < 85){
                     x = 0;
                 }
-                else if(shiftLeft > 80 && shiftLeft < 170){
+                else if(shiftLeft >= 85 && shiftLeft < 170){
                     x = 1;
                 }
                 else if(shiftLeft >170){
                     x = 2;
                 }
                 // set y
-                if(shiftTop < 80){
+                if(shiftTop < 85){
                     y = 0;
                 }
-                else if(shiftTop > 80 && shiftTop < 170){
+                else if(shiftTop >= 85 && shiftTop < 170){
                     y = 1;
                 }
                 else if(shiftTop > 170){
@@ -100,8 +100,34 @@ pieces.forEach((piece)=>{
                 const dY = coordinates[1] - currentCoordinates[1];
                 // if dX > 0 move RIGHT, if dY > 0 move DOWN
                 // has direction - so update virtual Board
+                console.log(coordinates, x, y);
+                // update screen
+                // move RIGHT so left: +85px;
+                if(x > 0){
+                    piece.animate([
+                            {left: `${shiftLeft + shiftLeft}px`}
+                        ],
+                        {
+                            duration: 500,
+                            iterations: 1
+                        }).finished.then(()=>{
+                            piece.style.left = `${shiftLeft + shiftLeft}px`;
+                    });
+                }
+                // move DOWN so Top: +85px;
+                if(y > 0){
+                    piece.animate([
+                            {top: `${shiftTop + shiftTop}px`}
+                        ],
+                        {
+                            duration: 500,
+                            iterations: 1
+                        }).finished.then(()=>{
+                        piece.style.top = `${shiftTop + shiftTop}px`;
+                    });
+                }
 
-                console.log(dX, dY);
+                //console.log(dX, dY);
             }
         });
 
