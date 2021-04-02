@@ -148,12 +148,13 @@ Styles for desktop navigation
 
 .subNav {
   &__desktop{
+    border-radius: 5px;
     background-color: #444;
     padding: 10px;
     color: #ccc;
     max-height: 320px;
     min-width: 160px;
-    top:-320px;
+    transform: translateY(-380px);
     list-style: none;
     z-index: 1;
     position: absolute;

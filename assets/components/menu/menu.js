@@ -55,22 +55,27 @@ menuMobile.forEach((menuItem, key)=>{
 // ------------ Sub nav
 // get links to sub menu
 const subLinks = document.querySelectorAll('.nav__desktop__list > li > i');
+const mainLinks = document.querySelectorAll('.nav__desktop > ul > li > a');
+mainLinks.forEach((mainLink)=>{
+    mainLink.addEventListener('click', (e)=>{e.preventDefault();})
+});
 // add listener on each link
 let subMenuStatus = false;
 subLinks.forEach((subLink, key)=>{
 
     subLink.addEventListener('click',(e)=>{
+
         const nextElement = subLink.nextElementSibling;
         // Open Sub Menu in Desktop Mode
         if(!subMenuStatus){
             e.target.style.transform = "rotate(0deg)";
             nextElement.animate([
-                {transform: 'translateY(380px)'}
+                {transform: 'translateY(20px)'}
             ],{
                 duration: 300,
                 iterations: 1,
             }).finished.then(() => {
-                nextElement.style.transform = 'translateY(380px)';
+                nextElement.style.transform = 'translateY(20px)';
             });
             subMenuStatus = true;
 
