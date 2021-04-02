@@ -11,7 +11,10 @@ Styles for Mobile navigation
     top: 10px;
     position: fixed;
     font-size: 2rem;
-    color: #222;
+    color: #fff;
+    background-color: #222;
+    border-radius: 50%;
+    padding: 0 5px;
     &__icon{
       cursor: pointer;
     }
