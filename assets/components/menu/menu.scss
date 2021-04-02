@@ -9,7 +9,7 @@ Styles for Mobile navigation
   &__button{
     left: 10px;
     top: 10px;
-    position: fixed;
+    //position: fixed;
     font-size: 2rem;
     color: #fff;
     background-color: #222;
@@ -199,3 +199,7 @@ Styles for desktop navigation
   }
 }
 
+.hidden{
+  display: none;
+  visibility: hidden;
+}

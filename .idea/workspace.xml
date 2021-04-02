@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cf66441-0f0c-46c0-b7d2-caa3439d480c" name="Default Changelist" comment="ok">
-      <change afterPath="$PROJECT_DIR$/assets/components/puzzleGame/board.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/components/menu/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/menu/menu.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/components/menu/menu.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/menu/menu.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/puzzleGame.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/puzzleGame.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/styles/puzzleGame.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/puzzleGame.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PuzzleGameController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PuzzleGameController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/menu/_menu.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/menu/_menu.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/puzzle_game/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/puzzle_game/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

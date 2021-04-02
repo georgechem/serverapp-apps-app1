@@ -12,7 +12,6 @@ class PuzzleGameController extends AbstractController
     public function index(): Response
     {
         return $this->render('puzzle_game/index.html.twig', [
-            'controller_name' => 'PuzzleGameController',
         ]);
     }
 }

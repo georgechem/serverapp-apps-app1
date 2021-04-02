@@ -3,6 +3,7 @@ const $ = require('jquery');
 $('#nav-button').on('click', (e)=>{
     $(e.currentTarget).hide();
     const mobileMenuToLeft = document.getElementsByClassName('nav__mobile');
+    mobileMenuToLeft[0].classList.remove('hidden');
     // Slide Right Sub Menu - VISIBLE
     mobileMenuToLeft[0].animate([
             {transform: 'translateX(0px)'}
@@ -17,7 +18,6 @@ $('#nav-button').on('click', (e)=>{
 });
 // click on mobile menu close button
 $('#nav-close').on('click', ()=>{
-    $('#nav-button').show();
     // Slide Left Sub Menu - HIDDEN
     const mobileMenuToLeft = document.getElementsByClassName('nav__mobile');
     mobileMenuToLeft[0].animate([
@@ -29,6 +29,11 @@ $('#nav-close').on('click', ()=>{
         }).finished.then(() =>{
             mobileMenuToLeft[0].style.transform = 'translateX(-300px)';
     })
+    setTimeout(()=>{
+        mobileMenuToLeft[0].classList.add('hidden');
+        $('#nav-button').show();
+    },500);
+
 
 });
 /*
