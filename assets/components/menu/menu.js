@@ -53,15 +53,7 @@ menuMobile.forEach((menuItem, key)=>{
     generateLinkText(menuItem, linksText[key]);
 });
 // ------------ Sub nav
-// get links to sub menu
-const subLinks = document.querySelectorAll('.nav__desktop__list > li > i');
-const mainLinks = document.querySelectorAll('.nav__desktop > ul > li > a');
-mainLinks.forEach((mainLink)=>{
-    mainLink.addEventListener('click', (e)=>{e.preventDefault();})
-});
-// add listener on each link
-subLinks.forEach((subLink)=>{
-
+function expandSubMenu(subLink){
     subLink.addEventListener('click',(e)=>{
         const currentText = e.currentTarget.style.cssText;
         // hide all submenus
@@ -74,7 +66,7 @@ subLinks.forEach((subLink)=>{
                 duration: 300,
                 iterations: 1
             }).finished.then(()=>{
-               subLink.nextElementSibling.style.transform = 'translateY(-380px)';
+                subLink.nextElementSibling.style.transform = 'translateY(-380px)';
             });
         });
         const textAfter = e.currentTarget.style.cssText;
@@ -91,6 +83,21 @@ subLinks.forEach((subLink)=>{
         }
 
     });
+}
+// get links to sub menu
+const subLinks = document.querySelectorAll('.nav__desktop__list > li > i');
+const mainLinks = document.querySelectorAll('.nav__desktop > ul > li > a');
+mainLinks.forEach((mainLink)=>{
+    mainLink.addEventListener('click', (e)=>{
+        e.preventDefault();
+    })
+});
+// add listener on each link
+subLinks.forEach((subLink)=>{
+
+    expandSubMenu(subLink);
+
+
 
 });
 
