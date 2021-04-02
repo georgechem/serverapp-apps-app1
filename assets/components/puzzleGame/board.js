@@ -16,7 +16,7 @@ for(row=0; row<3;row++){
         }
     }
 }
-console.log(board);
+//console.log(board);
 pieces.forEach((piece)=>{
     piece.addEventListener('click', (e)=>{
         const elementNo = parseInt(e.target.innerHTML,10);
@@ -41,7 +41,7 @@ pieces.forEach((piece)=>{
          */
         const clickedCoordX = isIn[0][0];
         const clickedCoordY = isIn[0][1];
-        console.log(board[clickedCoordX][clickedCoordY]);
+        //console.log(board[clickedCoordX][clickedCoordY]);
         // create matrix of possibilities
         const matrix = [];
         if((clickedCoordX - 1) >= 0){
@@ -60,8 +60,11 @@ pieces.forEach((piece)=>{
         // availability of -1 value in gives matrix
         // check value -1
         matrix.forEach((coordinates) => {
-            console.log(board[coordinates[0]][coordinates[1]]);
+            //console.log(board[coordinates[0]][coordinates[1]]);
             //console.log(coordinates);
+            if(board[[coordinates[0]][coordinates[1]]] < 0){
+                console.log(coordinates);
+            }
         });
 
 
