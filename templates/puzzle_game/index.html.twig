@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}puzzle 3 x 3{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('puzzleGame') }}
+{% endblock %}
+
+{% block body %}
+
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+    {{ encore_entry_script_tags('puzzleGame') }}
+{% endblock %}

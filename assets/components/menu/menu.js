@@ -106,7 +106,11 @@ const subLinks = document.querySelectorAll('.nav__desktop__list > li > i');
 const mainLinks = document.querySelectorAll('.nav__desktop > ul > li > a');
 mainLinks.forEach((mainLink)=>{
     mainLink.addEventListener('click', (e)=>{
-        e.preventDefault();
+        if(e.target.innerHTML !== 'HOME'){
+            e.preventDefault();
+        }
+        //console.log(e.target.innerHTML);
+
     })
 });
 // add listener on each link
@@ -126,7 +130,9 @@ subLinksMobile.forEach((subLinkMobile)=>{
     // Main Links in Menu are Rather Headers - Not Clickable
     mainLinksMobile.forEach((mainLinkMobile)=>{
         mainLinkMobile.addEventListener('click',(e)=>{
-            e.preventDefault();
+            if(e.target.innerHTML !== 'HOME'){
+                e.preventDefault();
+            }
         });
     });
     // Get NEXT -> NEXT element
