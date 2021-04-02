@@ -64,34 +64,35 @@ let subMenuStatus = false;
 subLinks.forEach((subLink, key)=>{
 
     subLink.addEventListener('click',(e)=>{
-
-        const nextElement = subLink.nextElementSibling;
-        // Open Sub Menu in Desktop Mode
-        if(!subMenuStatus){
-            e.target.style.transform = "rotate(0deg)";
-            nextElement.animate([
-                {transform: 'translateY(20px)'}
-            ],{
-                duration: 300,
-                iterations: 1,
-            }).finished.then(() => {
-                nextElement.style.transform = 'translateY(20px)';
-            });
-            subMenuStatus = true;
-
-        }else{
-            // Close Sub Menu in Desktop Mode
-            e.target.style.transform = "rotate(-90deg)";
-            nextElement.animate([
+        const currentText = e.currentTarget.style.cssText;
+        // hide all submenus
+        subLinks.forEach((subLink)=>{
+            // all carets to closed position
+            subLink.style.transform = 'rotate(-90deg)';
+            subLink.nextElementSibling.animate([
                 {transform: 'translateY(-380px)'}
             ],{
                 duration: 300,
-                iterations: 1,
-            }).finished.then(() => {
-                nextElement.style.transform = 'translateY(-380px)';
+                iterations: 1
+            }).finished.then(()=>{
+               subLink.nextElementSibling.style.transform = 'translateY(-380px)';
             });
-            subMenuStatus = false;
+        });
+        const textAfter = e.currentTarget.style.cssText;
+        console.log(currentText)
+        console.log(textAfter);
+        if(textAfter === currentText || currentText === ''){
+            e.currentTarget.style.transform = 'rotate(0deg)';
+            e.target.nextElementSibling.animate([
+                {transform: 'translateY(20px'}
+            ],{
+                duration: 300,
+                iterations: 1
+            }).finished.then(()=>{
+                e.target.nextElementSibling.style.transform = 'translateY(20px)';
+            });
         }
+
     });
 
 });

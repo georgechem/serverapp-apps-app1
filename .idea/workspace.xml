@@ -4,7 +4,7 @@
     <list default="true" id="3cf66441-0f0c-46c0-b7d2-caa3439d480c" name="Default Changelist" comment="ok">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/components/menu/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/menu/menu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/components/menu/menu.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/menu/menu.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/menu/_menu.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/menu/_menu.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +22,14 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
