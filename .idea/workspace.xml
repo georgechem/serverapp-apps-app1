@@ -4,7 +4,6 @@
     <list default="true" id="3cf66441-0f0c-46c0-b7d2-caa3439d480c" name="Default Changelist" comment="ok">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/components/menu/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/menu/menu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/menu/_menu.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/menu/_menu.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -389,7 +388,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617310513860</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="ok">
+      <created>1617355454574</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1617355454574</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -409,13 +415,13 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="jquery" />
-    <MESSAGE value="ok" />
     <MESSAGE value="last ok" />
     <MESSAGE value="working" />
     <MESSAGE value="coments" />
     <MESSAGE value="all mobile menu works perfect" />
     <MESSAGE value="submenu links error fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="submenu links error fixed" />
+    <MESSAGE value="ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="ok" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

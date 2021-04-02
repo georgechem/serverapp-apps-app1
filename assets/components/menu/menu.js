@@ -60,8 +60,7 @@ mainLinks.forEach((mainLink)=>{
     mainLink.addEventListener('click', (e)=>{e.preventDefault();})
 });
 // add listener on each link
-let subMenuStatus = false;
-subLinks.forEach((subLink, key)=>{
+subLinks.forEach((subLink)=>{
 
     subLink.addEventListener('click',(e)=>{
         const currentText = e.currentTarget.style.cssText;
@@ -79,8 +78,6 @@ subLinks.forEach((subLink, key)=>{
             });
         });
         const textAfter = e.currentTarget.style.cssText;
-        console.log(currentText)
-        console.log(textAfter);
         if(textAfter === currentText || currentText === ''){
             e.currentTarget.style.transform = 'rotate(0deg)';
             e.target.nextElementSibling.animate([
@@ -101,7 +98,7 @@ subLinks.forEach((subLink, key)=>{
 const subLinksMobile = document.querySelectorAll('.nav__mobile__list >li > i');
 const mainLinksMobile = document.querySelectorAll('.nav__mobile__list > li > a');
 const navMobileLinks = document.querySelectorAll('.nav__mobile > ul > li > ul');
-subLinksMobile.forEach((subLinkMobile, key)=>{
+subLinksMobile.forEach((subLinkMobile)=>{
     // Main Links in Menu are Rather Headers - Not Clickable
     mainLinksMobile.forEach((mainLinkMobile)=>{
         mainLinkMobile.addEventListener('click',(e)=>{
