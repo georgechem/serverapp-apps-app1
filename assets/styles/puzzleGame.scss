@@ -4,17 +4,23 @@ body {
 
 .puzzle{
   margin: 0 auto;
-  width:280px;
+  width:260px;
   background-color: #AAAAAA;
   position: relative;
-  //display: flex;
-  //flex-wrap: wrap;
   &__piece{
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #AAAAAA;
     position: absolute;
-    border: 1px solid red;
+    border: 1px solid white;
     min-width:80px;
     min-height: 80px;
     left: 1px;
     top: 1px;
+    &__number{
+      text-align: center;
+      font-size: 3rem;
+      font-weight: bolder;
+    }
   }
 }

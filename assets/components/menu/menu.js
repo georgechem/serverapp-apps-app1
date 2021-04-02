@@ -1,7 +1,9 @@
 const $ = require('jquery');
 // click on Mobile menu button
+const mainContent = document.querySelectorAll('main');
 $('#nav-button').on('click', (e)=>{
     $(e.currentTarget).hide();
+    $('main').hide();
     const mobileMenuToLeft = document.getElementsByClassName('nav__mobile');
     mobileMenuToLeft[0].classList.remove('hidden');
     // Slide Right Sub Menu - VISIBLE
@@ -32,6 +34,7 @@ $('#nav-close').on('click', ()=>{
     setTimeout(()=>{
         mobileMenuToLeft[0].classList.add('hidden');
         $('#nav-button').show();
+        $('main').show();
     },500);
 
 
@@ -114,17 +117,12 @@ mainLinks.forEach((mainLink)=>{
         if(e.target.innerHTML !== 'HOME'){
             e.preventDefault();
         }
-        //console.log(e.target.innerHTML);
 
     })
 });
 // add listener on each link
 subLinks.forEach((subLink)=>{
-
     expandSubMenu(subLink);
-
-
-
 });
 
 // listeners on buttons
