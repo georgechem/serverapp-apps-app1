@@ -36,7 +36,7 @@ Function that read menu Links from backend
  */
 const menuDesktop = document.querySelectorAll('.nav__desktop__list > li > a');
 const menuMobile = document.querySelectorAll('.nav__mobile__list >li > a');
-const linksText = ['home', 'link1','link2', 'link3'];
+const linksText = ['home', 'games','link2', 'link3'];
 
 /*
 Function Responsible for loading Menu link from variable
