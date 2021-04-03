@@ -193,7 +193,7 @@ function getDirection(coordinates, clicked){
 /**
  * Function handleUserMoves -- LOCAL STORAGE
  */
-localStorage.clear();
+//localStorage.clear();
 const amount = document.getElementById('amount');
 const theBest = document.getElementById('theBest');
 theBest.innerText = localStorage.getItem('theBest') ?? 0;
