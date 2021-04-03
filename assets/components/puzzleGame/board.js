@@ -143,6 +143,25 @@ function getDirection(coordinates, clicked){
 }
 
 /**
+ * Function handleUserMoves
+ */
+const amount = document.getElementById('amount');
+const theBest = document.getElementById('theBest');
+theBest.innerText = localStorage.getItem('theBest') ?? 0;
+let moves = localStorage.getItem('numberOfMoves') ?? 0;
+function handleMovesNumber(){
+    amount.innerText = moves;
+    moves++;
+}
+
+/**
+ * Check is Winner
+ */
+function isWinner(){
+
+}
+
+/**
  * Shuffle board
  */
 let shuffleMode = true;
@@ -184,6 +203,7 @@ pieces.forEach((piece)=>{
                 }
                 if(!shuffleMode){
                     doMove(piece,shiftLeft, shiftTop, dx, dy);
+                    handleMovesNumber();
                 }else{
                     doMove(piece,shiftLeft, shiftTop, dx, dy, 0);
                 }

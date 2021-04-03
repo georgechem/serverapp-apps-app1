@@ -7,12 +7,21 @@
 {% endblock %}
 
 {% block body %}
-    <main class="puzzle">
-        {% for i in range(1,8) %}
-            <div id="piece{{ i }}" class="puzzle__piece">
-                <div class="puzzle__piece__number"> {{ i }}</div>
-            </div>
-        {% endfor %}
+
+    <main class="main">
+        <p class="main__moves">
+            <span class="main__moves">Your the Best:</span>
+            <span id="theBest" class="main__moves__count">0</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;Your moves:&nbsp;
+        <span id="amount" class="main__moves__count">0</span>
+        </p>
+        <div class="puzzle">
+            {% for i in range(1,8) %}
+                <div id="piece{{ i }}" class="puzzle__piece">
+                    <div class="puzzle__piece__number"> {{ i }}</div>
+                </div>
+            {% endfor %}
+        </div>
     </main>
 
 {% endblock %}

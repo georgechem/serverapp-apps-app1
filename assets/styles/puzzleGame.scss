@@ -1,7 +1,17 @@
 body {
   background-color: #222222;
 }
-
+.main {
+  &__moves{
+    text-align: center;
+    color: white;
+    font-size: 0.8rem;
+    &__count{
+      color: yellow;
+      font-size: 1.5rem;
+    }
+  }
+}
 .puzzle{
   margin: 30px auto;
   width:260px;
