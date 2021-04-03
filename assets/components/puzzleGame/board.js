@@ -6,18 +6,41 @@ let solvedBoard =[];
 let shuffleMode = true;
 let shuffleAmount = 0;
 let piecesContainer = [];
+let shuffle = 0;
 
-function initVariables(){
+function resetPiecesTransformations(){
+    let newTop = 0;
+    let newLeft = 0;
+    pieces.forEach((piece,key)=>{
+       //console.log(piece.style.left);
+       if(key>=0 && key<=2){
+           newTop = 0;
+       }else if(key>=3 && key <=5){
+           newTop = 85;
+       }else if(key >=6 && key <=7){
+           newTop = 170;
+       }
+       pieces[key].style.top = `${newTop}px`;
+       if(key === 0 || key === 3 || key === 6){
+           newLeft = 0;
+       }else if(key === 1 || key === 4 || key === 7){
+           newLeft = 85;
+       }else if(key === 2 || key === 5 || key === 8){
+           newLeft = 170;
+       }
+       pieces[key].style.left = `${newLeft}px`;
+
+
+    });
+}
+
+function initBoard(){
     index = 0;
     board = [];
     solvedBoard =[];
     shuffleMode = true;
-    shuffleAmount = 20;
+    shuffleAmount = 200;
     piecesContainer = [];
-}
-
-function initBoard(){
-    initVariables()
 
     for(row=0; row<3;row++){
         board[row] = [];
@@ -39,6 +62,7 @@ function initBoard(){
             solvedBoard[row][col] = board[row][col];
         }
     }
+    //console.log(board, solvedBoard);
 }
 
 /**
@@ -166,7 +190,7 @@ function getDirection(coordinates, clicked){
 }
 
 /**
- * Function handleUserMoves
+ * Function handleUserMoves -- LOCAL STORAGE
  */
 //localStorage.clear();
 const amount = document.getElementById('amount');
@@ -195,11 +219,9 @@ function isPlayerWinner(moves){
     if(moves < parseInt(oldWinner) || parseInt(oldWinner) === 0){
         localStorage.setItem('theBest', moves);
     }
-    console.log(localStorage.getItem('theBest'));
+    //console.log(localStorage.getItem('theBest'));
     return true;
-
 }
-
 /**
  * Shuffle board
  */
@@ -211,52 +233,65 @@ function runShuffle(){
         shuffleMode = false;
     }
 }
-initBoard();
-pieces.forEach((piece)=>{
 
-    piece.addEventListener('click', (e)=>{
+/**
+ * Function Reset Game
+ */
+function resetGame(){
 
-        const [clickedCoordX, clickedCoordY] = getIndexClicked(board, e);
+    initBoard();
+    runGame();
+    shuffle = setInterval(()=>{
+        runShuffle();
+        setTimeout(()=>{
+            shuffleMode = true;
+        },30);
+    },10);
+}
+resetGame();
 
-        const matrix = getMatrix(clickedCoordX, clickedCoordY);
+function runGame(){
+    pieces.forEach((piece)=>{
 
-        matrix.forEach((coordinates) => {
-            if(isWinner){return true;}
-            // clicked move surrounded by possible move condition
-            if(board[coordinates[0]][coordinates[1]] < 0){
+        piece.addEventListener('click', (e)=>{
 
-                const shiftLeft = getOffset(piece, 'left');
-                const shiftTop = getOffset(piece, 'top');
+            const [clickedCoordX, clickedCoordY] = getIndexClicked(board, e);
 
-                const [dx, dy] = getDirection(coordinates, [clickedCoordX, clickedCoordY]);
+            const matrix = getMatrix(clickedCoordX, clickedCoordY);
 
-                updateBoard(board, [clickedCoordX, clickedCoordY],
-                    coordinates);
-                shuffleAmount--;
-                if(shuffleAmount <= 0 && shuffleMode === true){
-                    clearInterval(shuffle);
-                    shuffleMode = false;
+            matrix.forEach((coordinates) => {
+                if(isWinner){return true;}
+                // clicked move surrounded by possible move condition
+                if(board[coordinates[0]][coordinates[1]] < 0){
+
+                    const shiftLeft = getOffset(piece, 'left');
+                    const shiftTop = getOffset(piece, 'top');
+
+                    const [dx, dy] = getDirection(coordinates, [clickedCoordX, clickedCoordY]);
+
+                    updateBoard(board, [clickedCoordX, clickedCoordY],
+                        coordinates);
+                    shuffleAmount--;
+                    if(shuffleAmount <= 0 && shuffleMode === true){
+                        clearInterval(shuffle);
+                        shuffleMode = false;
+                        console.log('shuffle CLEARED and shuffleMode = FALSE');
+                    }
+                    if(!shuffleMode){
+                        doMove(piece,shiftLeft, shiftTop, dx, dy);
+                        isPlayerWinner(moves);
+                        handleMovesNumber();
+                    }else{
+                        doMove(piece,shiftLeft, shiftTop, dx, dy, 0);
+                    }
+
                 }
-                if(!shuffleMode){
-                    doMove(piece,shiftLeft, shiftTop, dx, dy);
-                    isPlayerWinner(moves);
-                    handleMovesNumber();
-                }else{
-                    doMove(piece,shiftLeft, shiftTop, dx, dy, 0);
-                }
+            });
 
-            }
+
         });
-
+        piecesContainer.push(piece);
 
     });
-    piecesContainer.push(piece);
+}
 
-});
-
-const shuffle = setInterval(()=>{
-    runShuffle();
-    setTimeout(()=>{
-        shuffleMode = true;
-    },30);
-},10);

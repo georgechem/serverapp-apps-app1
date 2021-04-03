@@ -12,17 +12,21 @@ body {
     }
   }
   &__btn{
+    margin: 320px auto 30px auto;
     text-align: center;
   }
   &__reset{
+    text-decoration: none;
     background-color: #555;
     color: #111;
-    outline: none;
     border-radius: 5px;
     cursor: pointer;
     padding: 10px;
     font-size: 1.5rem;
-    margin: 280px auto 30px auto;
+    &:hover{
+      background-color: #ddd;
+    }
+
   }
 }
 .puzzle{
