@@ -129,7 +129,7 @@ function getIndexClicked(board, e){
             isIn.push([key, number]);
         }
     })
-    return isIn;
+    return [isIn[0][0], isIn[0][1]];
 }
 
 function runShuffle(){
@@ -139,10 +139,8 @@ runShuffle();
 
 pieces.forEach((piece)=>{
     piece.addEventListener('click', (e)=>{
-        const isIn = getIndexClicked(board, e);
 
-        const clickedCoordX = isIn[0][0];
-        const clickedCoordY = isIn[0][1];
+        const [clickedCoordX, clickedCoordY] = getIndexClicked(board, e);
 
         const matrix = getMatrix(clickedCoordX, clickedCoordY);
 
