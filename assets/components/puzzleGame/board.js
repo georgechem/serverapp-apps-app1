@@ -140,34 +140,16 @@ runShuffle();
 pieces.forEach((piece)=>{
     piece.addEventListener('click', (e)=>{
         const isIn = getIndexClicked(board, e);
-        //console.log(isIn);
-        /**
-         * isIn[row, col] - format = value at certain position
-         */
-        /**
-         * 1.check is move is possible
-         * 2. do move on virtual board
-         * 3. do move on screen as animation
-         */
+
         const clickedCoordX = isIn[0][0];
         const clickedCoordY = isIn[0][1];
-        //console.log(board[clickedCoordX][clickedCoordY]);
-        // create matrix of possibilities
+
         const matrix = getMatrix(clickedCoordX, clickedCoordY);
 
-        // check if certain move selected - check
-        // availability of -1 value in gives matrix
-        // check value -1
         matrix.forEach((coordinates) => {
-            //console.log(board[coordinates[0]][coordinates[1]]);
-            //console.log(coordinates);
+
             if(board[coordinates[0]][coordinates[1]] < 0){
-                // position to move ex: [2,2]
-                //console.log(coordinates);
-                // need read of position where clicked
-                // value checked -1 so the piece clicked
-                // is already direct neighbour of place to move
-                // -- so only direction for move is needed
+
                 const shiftLeft = getOffset(piece, 'left');
                 const shiftTop = getOffset(piece, 'top');
                 // set coordinates of clicked point
@@ -175,21 +157,9 @@ pieces.forEach((piece)=>{
                 let y = 0;
                 const dy = coordinates[0] - clickedCoordX;
                 const dx = coordinates[1] - clickedCoordY;
-                // if dX > 0 move RIGHT, if dY > 0 move DOWN
-                // has direction - so update virtual Board
-                // update board with new data
-                // copy all values to board[][]
 
                 updateBoard(board, [clickedCoordX, clickedCoordY],
                     coordinates);
-                /*
-                const tmpBoardItem = board[coordinates[0]][coordinates[1]];
-                board[coordinates[0]][coordinates[1]] = board[clickedCoordX][clickedCoordY];
-                board[clickedCoordX][clickedCoordY] = tmpBoardItem;*/
-                //console.log(board);
-                //console.log(coordinates, currentCoordinates);
-                // update screen
-                // move RIGHT so left: +85px;
 
                 doMove(piece,shiftLeft, shiftTop, dx, dy);
             }
