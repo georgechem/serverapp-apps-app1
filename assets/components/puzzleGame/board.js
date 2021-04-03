@@ -112,21 +112,34 @@ function doMove(piece,shiftLeft, shiftTop, dx, dy, delay = 200){
     }
 }
 
+/**
+ * Gen index/position of Clicked element
+ */
+function getIndexClicked(board, e){
+    const elementNo = parseInt(e.target.innerHTML,10);
+    let isIn = []
+    let number = 0;
+    // get index/position of clicked element
+    board.forEach((item, key)=>{
+        isIn.push(item.findIndex((element)=>{
+            return element === elementNo;
+        }));
+        number = isIn.pop();
+        if(number >= 0){
+            isIn.push([key, number]);
+        }
+    })
+    return isIn;
+}
+
+function runShuffle(){
+
+}
+runShuffle();
+
 pieces.forEach((piece)=>{
     piece.addEventListener('click', (e)=>{
-        const elementNo = parseInt(e.target.innerHTML,10);
-        let isIn = [];
-        let number = 0;
-        // get index/position of clicked element
-        board.forEach((item, key)=>{
-            isIn.push(item.findIndex((element)=>{
-                return element === elementNo;
-            }));
-            number = isIn.pop();
-            if(number >= 0){
-                isIn.push([key, number]);
-            }
-        })
+        const isIn = getIndexClicked(board, e);
         //console.log(isIn);
         /**
          * isIn[row, col] - format = value at certain position
