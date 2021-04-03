@@ -116,7 +116,7 @@ function doMove(piece,shiftLeft, shiftTop, dx, dy, delay = 200){
  * Gen index/position of Clicked element
  */
 function getIndexClicked(board, e){
-    const elementNo = parseInt(e.target.innerHTML,10);
+    const elementNo = parseInt(e.target.innerText,10);
     let isIn = []
     let number = 0;
     // get index/position of clicked element
@@ -142,12 +142,24 @@ function getDirection(coordinates, clicked){
     return [dy, dx];
 }
 
+/**
+ * Shuffle board
+ */
+let shuffleMode = true;
+let shuffleAmount = 7;
+const piecesContainer = [];
 function runShuffle(){
+    const clickEvent = new Event('click');
+    while(shuffleMode){
+        piecesContainer[7].dispatchEvent(clickEvent);
+        shuffleMode = false;
+    }
+
 
 }
-runShuffle();
 
 pieces.forEach((piece)=>{
+
     piece.addEventListener('click', (e)=>{
 
         const [clickedCoordX, clickedCoordY] = getIndexClicked(board, e);
@@ -166,11 +178,23 @@ pieces.forEach((piece)=>{
 
                 updateBoard(board, [clickedCoordX, clickedCoordY],
                     coordinates);
+                if(!shuffleMode){
+                    doMove(piece,shiftLeft, shiftTop, dx, dy);
+                }else{
+                    doMove(piece,shiftLeft, shiftTop, dx, dy, 5);
+                }
 
-                doMove(piece,shiftLeft, shiftTop, dx, dy);
             }
         });
 
 
     });
+    piecesContainer.push(piece);
+
+    shuffleAmount--;
+
 });
+
+if(shuffleAmount <= 0){
+    runShuffle();
+}
