@@ -1,3 +1,4 @@
+const $ = require('jquery');
 const pieces = document.querySelectorAll('.puzzle__piece');
 
 let index = 0;
@@ -39,7 +40,7 @@ function initBoard(){
     board = [];
     solvedBoard =[];
     shuffleMode = true;
-    shuffleAmount = 200;
+    shuffleAmount = 5;
     piecesContainer = [];
 
     for(row=0; row<3;row++){
@@ -220,6 +221,7 @@ function isPlayerWinner(moves){
         localStorage.setItem('theBest', moves);
     }
     //console.log(localStorage.getItem('theBest'));
+    //console.log('winner');
     return true;
 }
 /**
@@ -279,7 +281,19 @@ function runGame(){
                     }
                     if(!shuffleMode){
                         doMove(piece,shiftLeft, shiftTop, dx, dy);
-                        isPlayerWinner(moves);
+                        if(isPlayerWinner(moves)){
+                            // create element
+                            const div = document.createElement("div");
+                            div.classList.add('main__winner');
+                            div.innerText = 'winner';
+                            // winner
+                            const main = document.getElementsByClassName('main');
+                            const child = main[0].children[1];
+                            let oldChild = main[0].replaceChild(div, child);
+
+                            console.log(main[0].children[1]);
+                            //$('.puzzle').hide();
+                        }
                         handleMovesNumber();
                     }else{
                         doMove(piece,shiftLeft, shiftTop, dx, dy, 0);

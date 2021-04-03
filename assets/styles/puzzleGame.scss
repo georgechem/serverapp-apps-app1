@@ -11,6 +11,12 @@ body {
       font-size: 1.5rem;
     }
   }
+  &__winner{
+    position: absolute;
+    margin: 50px 40% 0 50%;
+    font-size: 2rem;
+    color: green;
+  }
   &__btn{
     margin: 320px auto 30px auto;
     text-align: center;
