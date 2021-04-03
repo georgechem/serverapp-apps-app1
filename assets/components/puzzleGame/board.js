@@ -132,6 +132,16 @@ function getIndexClicked(board, e){
     return [isIn[0][0], isIn[0][1]];
 }
 
+/**
+ * Get movement direction
+ */
+function getDirection(coordinates, clicked){
+    const dx = coordinates[0] - clicked[0];
+    const dy = coordinates[1] - clicked[1];
+
+    return [dy, dx];
+}
+
 function runShuffle(){
 
 }
@@ -146,15 +156,13 @@ pieces.forEach((piece)=>{
 
         matrix.forEach((coordinates) => {
 
+            // clicked move surrounded by possible move condition
             if(board[coordinates[0]][coordinates[1]] < 0){
 
                 const shiftLeft = getOffset(piece, 'left');
                 const shiftTop = getOffset(piece, 'top');
-                // set coordinates of clicked point
-                let x = 0;
-                let y = 0;
-                const dy = coordinates[0] - clickedCoordX;
-                const dx = coordinates[1] - clickedCoordY;
+
+                const [dx, dy] = getDirection(coordinates, [clickedCoordX, clickedCoordY]);
 
                 updateBoard(board, [clickedCoordX, clickedCoordY],
                     coordinates);
