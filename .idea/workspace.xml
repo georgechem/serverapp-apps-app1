@@ -4,6 +4,7 @@
     <list default="true" id="3cf66441-0f0c-46c0-b7d2-caa3439d480c" name="Default Changelist" comment="ok">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/styles/puzzleGameOneControll.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/puzzleGameOneControll.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/gameOne/game_puzzle.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gameOne/game_puzzle.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,13 +179,6 @@
       <workItem from="1617262081006" duration="5930000" />
       <workItem from="1617347236233" duration="1838000" />
       <workItem from="1617432168065" duration="12620000" />
-    </task>
-    <task id="LOCAL-00022" summary="last ok">
-      <created>1617303536013</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1617303536013</updated>
     </task>
     <task id="LOCAL-00023" summary="working">
       <created>1617305171800</created>
@@ -522,7 +516,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617479822665</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="desktop menu updated">
+      <created>1617479972828</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1617479972828</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

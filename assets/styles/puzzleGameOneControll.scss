@@ -9,6 +9,7 @@ body {
   display: flex;
   justify-content: center;
   &__board{
+    position: relative;
     background-color: #777;
     width:300px;
   }
