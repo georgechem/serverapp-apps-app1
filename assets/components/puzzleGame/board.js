@@ -62,13 +62,13 @@ function getMatrix(clickedCoordX, clickedCoordY){
 /**
  * Function responsible for movement in viewport
  */
-function doMove(piece,shiftLeft, shiftTop, dx, dy){
+function doMove(piece,shiftLeft, shiftTop, dx, dy, delay = 200){
     if(dx > 0){
         piece.animate([
                 {left: `${shiftLeft + 85}px`}
             ],
             {
-                duration: 200,
+                duration: delay,
                 iterations: 1
             }).finished.then(()=>{
             piece.style.left = `${shiftLeft + 85}px`;
@@ -80,7 +80,7 @@ function doMove(piece,shiftLeft, shiftTop, dx, dy){
                 {top: `${shiftTop + 85}px`}
             ],
             {
-                duration: 200,
+                duration: delay,
                 iterations: 1
             }).finished.then(()=>{
             piece.style.top = `${shiftTop + 85}px`;
@@ -92,7 +92,7 @@ function doMove(piece,shiftLeft, shiftTop, dx, dy){
                 {left: `${shiftLeft - 85}px`}
             ],
             {
-                duration: 200,
+                duration: delay,
                 iterations: 1
             }).finished.then(()=>{
             piece.style.left = `${shiftLeft - 85}px`;
@@ -104,7 +104,7 @@ function doMove(piece,shiftLeft, shiftTop, dx, dy){
                 {top: `${shiftTop - 85}px`}
             ],
             {
-                duration: 200,
+                duration: delay,
                 iterations: 1
             }).finished.then(()=>{
             piece.style.top = `${shiftTop - 85}px`;
