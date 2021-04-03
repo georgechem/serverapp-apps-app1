@@ -280,7 +280,7 @@ function runGame(){
                         console.log('shuffle CLEARED and shuffleMode = FALSE');
                     }
                     if(!shuffleMode){
-                        doMove(piece,shiftLeft, shiftTop, dx, dy);
+                        doMove(piece,shiftLeft, shiftTop, dx, dy, 100);
                         if(isPlayerWinner(moves)){
                             // create element
                             const div = document.createElement("div");

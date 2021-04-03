@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cf66441-0f0c-46c0-b7d2-caa3439d480c" name="Default Changelist" comment="ok">
+      <change afterPath="$PROJECT_DIR$/assets/components/puzzleGameOne/puzzleGameOneControll.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/puzzleGameOne.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/styles/puzzleGameOneControll.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/gameOne/game_puzzle.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/components/puzzleGame/board.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/puzzleGame/board.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PuzzleGameController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PuzzleGameController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/menu/_menu.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/menu/_menu.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,20 +185,6 @@
       <workItem from="1617262081006" duration="5930000" />
       <workItem from="1617347236233" duration="1838000" />
       <workItem from="1617432168065" duration="12620000" />
-    </task>
-    <task id="LOCAL-00017" summary="ok">
-      <created>1617263015811</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1617263015811</updated>
-    </task>
-    <task id="LOCAL-00018" summary="ok">
-      <created>1617266324258</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1617266324258</updated>
     </task>
     <task id="LOCAL-00019" summary="ok">
       <created>1617271089811</created>
@@ -521,7 +515,21 @@
       <option name="project" value="LOCAL" />
       <updated>1617461939905</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="ok">
+      <created>1617462051836</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1617462051836</updated>
+    </task>
+    <task id="LOCAL-00067" summary="ok">
+      <created>1617462097969</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1617462097969</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

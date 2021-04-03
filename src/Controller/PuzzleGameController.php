@@ -14,4 +14,10 @@ class PuzzleGameController extends AbstractController
         return $this->render('puzzle_game/index.html.twig', [
         ]);
     }
+
+    #[Route('/puzzle/gameOne', name:'puzzle_gameOne')]
+    public function gamePuzzle():Response
+    {
+        return $this->render('gameOne/game_puzzle.html.twig',[]);
+    }
 }
