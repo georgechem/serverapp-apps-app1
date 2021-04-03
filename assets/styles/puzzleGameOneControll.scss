@@ -2,6 +2,16 @@ body {
   background-color: #2d2d2d;
   color: #ddd;
 }
+.main{
+ }
 .gameOneControll{
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  &__board{
+    background-color: #777;
+    width: 100%;
+    max-width: 900px;
+  }
 
 }
