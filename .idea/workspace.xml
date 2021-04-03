@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cf66441-0f0c-46c0-b7d2-caa3439d480c" name="Default Changelist" comment="ok">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/components/puzzleGame/board.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/puzzleGame/board.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,13 +177,6 @@
       <workItem from="1617262081006" duration="5930000" />
       <workItem from="1617347236233" duration="1838000" />
       <workItem from="1617432168065" duration="12620000" />
-    </task>
-    <task id="LOCAL-00016" summary="ok">
-      <created>1617222894944</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1617222894944</updated>
     </task>
     <task id="LOCAL-00017" summary="ok">
       <created>1617263015811</created>
@@ -521,7 +514,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617461918169</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="ok">
+      <created>1617461939905</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1617461939905</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

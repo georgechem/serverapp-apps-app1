@@ -40,7 +40,7 @@ function initBoard(){
     board = [];
     solvedBoard =[];
     shuffleMode = true;
-    shuffleAmount = 5;
+    shuffleAmount = 200;
     piecesContainer = [];
 
     for(row=0; row<3;row++){
@@ -193,7 +193,7 @@ function getDirection(coordinates, clicked){
 /**
  * Function handleUserMoves -- LOCAL STORAGE
  */
-//localStorage.clear();
+localStorage.clear();
 const amount = document.getElementById('amount');
 const theBest = document.getElementById('theBest');
 theBest.innerText = localStorage.getItem('theBest') ?? 0;
