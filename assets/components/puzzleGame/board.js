@@ -63,7 +63,6 @@ pieces.forEach((piece)=>{
             //console.log(board[coordinates[0]][coordinates[1]]);
             //console.log(coordinates);
             if(board[coordinates[0]][coordinates[1]] < 0){
-
                 // position to move ex: [2,2]
                 //console.log(coordinates);
                 // need read of position where clicked
@@ -75,61 +74,67 @@ pieces.forEach((piece)=>{
                 // set coordinates of clicked point
                 let x = 0;
                 let y = 0;
-                // set x
-                if(shiftLeft < 85){
-                    x = 0;
-                }
-                else if(shiftLeft >= 85 && shiftLeft < 170){
-                    x = 1;
-                }
-                else if(shiftLeft >170){
-                    x = 2;
-                }
-                // set y
-                if(shiftTop < 85){
-                    y = 0;
-                }
-                else if(shiftTop >= 85 && shiftTop < 170){
-                    y = 1;
-                }
-                else if(shiftTop > 170){
-                    y = 2;
-                }
-                const currentCoordinates = [x, y];
-                const dX = coordinates[0] - currentCoordinates[0];
-                const dY = coordinates[1] - currentCoordinates[1];
+                const dy = coordinates[0] - clickedCoordX;
+                const dx = coordinates[1] - clickedCoordY;
                 // if dX > 0 move RIGHT, if dY > 0 move DOWN
                 // has direction - so update virtual Board
                 // update board with new data
                 // copy all values to board[][]
-                console.log(coordinates, x, y);
+                const tmpBoardItem = board[coordinates[0]][coordinates[1]];
+                board[coordinates[0]][coordinates[1]] = board[clickedCoordX][clickedCoordY];
+                board[clickedCoordX][clickedCoordY] = tmpBoardItem;
+                //console.log(board);
+                //console.log(coordinates, currentCoordinates);
                 // update screen
                 // move RIGHT so left: +85px;
-                if(x > 0){
+                if(dx > 0){
                     piece.animate([
-                            {left: `${shiftLeft + shiftLeft}px`}
+                            {left: `${shiftLeft + 85}px`}
                         ],
                         {
-                            duration: 500,
+                            duration: 300,
                             iterations: 1
                         }).finished.then(()=>{
-                            piece.style.left = `${shiftLeft + shiftLeft}px`;
+                            piece.style.left = `${shiftLeft + 85}px`;
                     });
                 }
                 // move DOWN so Top: +85px;
-                if(y > 0){
+                else if(dy > 0){
                     piece.animate([
-                            {top: `${shiftTop + shiftTop}px`}
+                            {top: `${shiftTop + 85}px`}
                         ],
                         {
-                            duration: 500,
+                            duration: 300,
                             iterations: 1
                         }).finished.then(()=>{
-                        piece.style.top = `${shiftTop + shiftTop}px`;
+                        piece.style.top = `${shiftTop + 85}px`;
+                    });
+                }
+                // move left so Left: -85px
+                else if(dx < 0){
+                    piece.animate([
+                            {left: `${shiftLeft - 85}px`}
+                        ],
+                        {
+                            duration: 300,
+                            iterations: 1
+                        }).finished.then(()=>{
+                        piece.style.left = `${shiftLeft - 85}px`;
+                    });
+                }
+                // move Up so Top: -85px;
+                else if(dy < 0){
+                    piece.animate([
+                            {top: `${shiftTop - 85}px`}
+                        ],
+                        {
+                            duration: 300,
+                            iterations: 1
+                        }).finished.then(()=>{
+                        piece.style.top = `${shiftTop - 85}px`;
                     });
                 }
 
-                //console.log(dX, dY);
             }
         });
 
