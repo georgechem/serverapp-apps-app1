@@ -11,6 +11,19 @@ body {
       font-size: 1.5rem;
     }
   }
+  &__btn{
+    text-align: center;
+  }
+  &__reset{
+    background-color: #555;
+    color: #111;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 1.5rem;
+    margin: 280px auto 30px auto;
+  }
 }
 .puzzle{
   margin: 30px auto;

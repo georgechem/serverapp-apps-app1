@@ -1,26 +1,43 @@
 const pieces = document.querySelectorAll('.puzzle__piece');
-let index = 0;
-// Init board
-let board = [];
 
-for(row=0; row<3;row++){
-    board[row] = [];
-    for(col=0; col <3; col++){
-        if(index <= 7){
-            pieces[index].style.left = `${col * 85}px`;
-            pieces[index].style.top = `${row * 85}px`;
-            board[row][col] = index + 1;
-            index++;
-        }else{
-            board[row][col] = -1;
+let index = 0;
+let board = [];
+let solvedBoard =[];
+let shuffleMode = true;
+let shuffleAmount = 0;
+let piecesContainer = [];
+
+function initVariables(){
+    index = 0;
+    board = [];
+    solvedBoard =[];
+    shuffleMode = true;
+    shuffleAmount = 20;
+    piecesContainer = [];
+}
+
+function initBoard(){
+    initVariables()
+
+    for(row=0; row<3;row++){
+        board[row] = [];
+        for(col=0; col <3; col++){
+            if(index <= 7){
+                pieces[index].style.left = `${col * 85}px`;
+                pieces[index].style.top = `${row * 85}px`;
+                board[row][col] = index + 1;
+                index++;
+            }else{
+                board[row][col] = -1;
+            }
         }
     }
-}
-let solvedBoard =[];
-for(row=0; row<3;row++){
-    solvedBoard[row] = [];
-    for(col=0; col <3; col++){
-        solvedBoard[row][col] = board[row][col];
+
+    for(row=0; row<3;row++){
+        solvedBoard[row] = [];
+        for(col=0; col <3; col++){
+            solvedBoard[row][col] = board[row][col];
+        }
     }
 }
 
@@ -186,9 +203,6 @@ function isPlayerWinner(moves){
 /**
  * Shuffle board
  */
-let shuffleMode = true;
-let shuffleAmount = 20;
-const piecesContainer = [];
 function runShuffle(){
     const clickEvent = new Event('click');
     while(shuffleMode){
@@ -197,7 +211,7 @@ function runShuffle(){
         shuffleMode = false;
     }
 }
-
+initBoard();
 pieces.forEach((piece)=>{
 
     piece.addEventListener('click', (e)=>{
