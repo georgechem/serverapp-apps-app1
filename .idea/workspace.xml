@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3cf66441-0f0c-46c0-b7d2-caa3439d480c" name="Default Changelist" comment="ok">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/components/puzzleGame/board.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/puzzleGame/board.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/puzzleGame.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/puzzleGame.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,13 +177,6 @@
       <workItem from="1617262081006" duration="5930000" />
       <workItem from="1617347236233" duration="1838000" />
       <workItem from="1617432168065" duration="12620000" />
-    </task>
-    <task id="LOCAL-00015" summary="ok">
-      <created>1617220840779</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1617220840779</updated>
     </task>
     <task id="LOCAL-00016" summary="ok">
       <created>1617222894944</created>
@@ -523,7 +514,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617457275307</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="ok">
+      <created>1617461918169</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1617461918169</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
