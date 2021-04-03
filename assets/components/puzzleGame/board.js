@@ -27,6 +27,39 @@ function updateBoard(board, coordinatesOfClicked, coordinatesToMove){
     board[coordinatesToMove[0]][coordinatesToMove[1]] = board[coordinatesOfClicked[0]][coordinatesOfClicked[1]];
     board[coordinatesOfClicked[0]][coordinatesOfClicked[1]] = tmpBoardItem;
 }
+
+/**
+ * Function getOffset - offset on the board of clicked element
+ */
+function getOffset(piece, type){
+    if(type === 'left'){
+        return parseInt(piece.style.left);
+    }
+    else if(type === 'top'){
+        return parseInt(piece.style.top);
+    }
+
+}
+
+/**
+ * Function getMatrixOfPossibleMovements
+ */
+function getMatrix(clickedCoordX, clickedCoordY){
+    const matrix = [];
+    if((clickedCoordX - 1) >= 0){
+        matrix.push([clickedCoordX - 1, clickedCoordY]);
+    }
+    if((clickedCoordX + 1) <= 2){
+        matrix.push([clickedCoordX + 1, clickedCoordY]);
+    }
+    if((clickedCoordY - 1) >= 0){
+        matrix.push([clickedCoordX, clickedCoordY - 1]);
+    }
+    if((clickedCoordY + 1) <= 2){
+        matrix.push([clickedCoordX, clickedCoordY + 1]);
+    }
+    return matrix;
+}
 /**
  * Function responsible for movement in viewport
  */
@@ -108,19 +141,8 @@ pieces.forEach((piece)=>{
         const clickedCoordY = isIn[0][1];
         //console.log(board[clickedCoordX][clickedCoordY]);
         // create matrix of possibilities
-        const matrix = [];
-        if((clickedCoordX - 1) >= 0){
-            matrix.push([clickedCoordX - 1, clickedCoordY]);
-        }
-        if((clickedCoordX + 1) <= 2){
-            matrix.push([clickedCoordX + 1, clickedCoordY]);
-        }
-        if((clickedCoordY - 1) >= 0){
-            matrix.push([clickedCoordX, clickedCoordY - 1]);
-        }
-        if((clickedCoordY + 1) <= 2){
-            matrix.push([clickedCoordX, clickedCoordY + 1]);
-        }
+        const matrix = getMatrix(clickedCoordX, clickedCoordY);
+
         // check if certain move selected - check
         // availability of -1 value in gives matrix
         // check value -1
@@ -134,8 +156,8 @@ pieces.forEach((piece)=>{
                 // value checked -1 so the piece clicked
                 // is already direct neighbour of place to move
                 // -- so only direction for move is needed
-                const shiftLeft = parseInt(piece.style.left);
-                const shiftTop = parseInt(piece.style.top);
+                const shiftLeft = getOffset(piece, 'left');
+                const shiftTop = getOffset(piece, 'top');
                 // set coordinates of clicked point
                 let x = 0;
                 let y = 0;
