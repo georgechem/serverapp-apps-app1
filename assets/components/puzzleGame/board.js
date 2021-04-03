@@ -15,10 +15,9 @@ for(row=0; row<3;row++){
             board[row][col] = -1;
         }
     }
-}// do board copy an shuffle original board
+}
 const solvedBoard = [...board];
-//board = board.reverse();
-//console.log(board);
+
 /**
  * Function update board
  */
