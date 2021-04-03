@@ -146,7 +146,7 @@ function getDirection(coordinates, clicked){
  * Shuffle board
  */
 let shuffleMode = true;
-let shuffleAmount = 30;
+let shuffleAmount = 100;
 const piecesContainer = [];
 function runShuffle(){
     const clickEvent = new Event('click');
@@ -154,8 +154,7 @@ function runShuffle(){
         const randPiece = Math.floor(Math.random()*8);
         piecesContainer[randPiece].dispatchEvent(clickEvent);
         shuffleMode = false;
-        shuffleAmount--;
-        console.log(shuffleAmount);
+        //console.log(shuffleAmount);
     }
 
 
@@ -184,8 +183,9 @@ pieces.forEach((piece)=>{
                 if(!shuffleMode){
                     doMove(piece,shiftLeft, shiftTop, dx, dy);
                 }else{
-                    doMove(piece,shiftLeft, shiftTop, dx, dy, 50);
+                    doMove(piece,shiftLeft, shiftTop, dx, dy, 0);
                 }
+                shuffleAmount--;
                 if(shuffleAmount <= 0 && shuffleMode === true){
                     clearInterval(shuffle);
                     shuffleMode = false;
@@ -198,13 +198,11 @@ pieces.forEach((piece)=>{
     });
     piecesContainer.push(piece);
 
-    shuffleAmount--;
-
 });
 
 const shuffle = setInterval(()=>{
     runShuffle();
     setTimeout(()=>{
         shuffleMode = true;
-    },50);
-},100);
+    },25);
+},30);
