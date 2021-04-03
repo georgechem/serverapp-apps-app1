@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cf66441-0f0c-46c0-b7d2-caa3439d480c" name="Default Changelist" comment="ok">
-      <change afterPath="$PROJECT_DIR$/assets/components/puzzleGameOne/puzzleGameOneControll.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/puzzleGameOne.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/styles/puzzleGameOneControll.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/gameOne/game_puzzle.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/components/puzzleGame/board.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/puzzleGame/board.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PuzzleGameController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PuzzleGameController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/components/menu/_menu.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/menu/_menu.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -558,7 +550,8 @@
     <MESSAGE value="fixed - shiffted menu was still in page flow causing content to shift / done" />
     <MESSAGE value="movement working" />
     <MESSAGE value="ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="ok" />
+    <MESSAGE value="gameOne skeleton done" />
+    <option name="LAST_COMMIT_MESSAGE" value="gameOne skeleton done" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
