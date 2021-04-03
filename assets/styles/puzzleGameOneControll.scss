@@ -10,8 +10,9 @@ body {
   justify-content: center;
   &__board{
     position: relative;
-    background-color: #777;
+    background-color: #444;
     width:300px;
+    border-radius: 5px;
   }
 
 }
