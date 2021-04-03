@@ -15,13 +15,77 @@ for(row=0; row<3;row++){
             board[row][col] = -1;
         }
     }
-}
+}// do board copy an shuffle original board
+const solvedBoard = [...board];
+//board = board.reverse();
 //console.log(board);
+/**
+ * Function update board
+ */
+function updateBoard(board, coordinatesOfClicked, coordinatesToMove){
+    const tmpBoardItem = board[coordinatesToMove[0]][coordinatesToMove[1]];
+    board[coordinatesToMove[0]][coordinatesToMove[1]] = board[coordinatesOfClicked[0]][coordinatesOfClicked[1]];
+    board[coordinatesOfClicked[0]][coordinatesOfClicked[1]] = tmpBoardItem;
+}
+/**
+ * Function responsible for movement in viewport
+ */
+function doMove(piece,shiftLeft, shiftTop, dx, dy){
+    if(dx > 0){
+        piece.animate([
+                {left: `${shiftLeft + 85}px`}
+            ],
+            {
+                duration: 200,
+                iterations: 1
+            }).finished.then(()=>{
+            piece.style.left = `${shiftLeft + 85}px`;
+        });
+    }
+    // move DOWN so Top: +85px;
+    else if(dy > 0){
+        piece.animate([
+                {top: `${shiftTop + 85}px`}
+            ],
+            {
+                duration: 200,
+                iterations: 1
+            }).finished.then(()=>{
+            piece.style.top = `${shiftTop + 85}px`;
+        });
+    }
+    // move left so Left: -85px
+    else if(dx < 0){
+        piece.animate([
+                {left: `${shiftLeft - 85}px`}
+            ],
+            {
+                duration: 200,
+                iterations: 1
+            }).finished.then(()=>{
+            piece.style.left = `${shiftLeft - 85}px`;
+        });
+    }
+    // move Up so Top: -85px;
+    else if(dy < 0){
+        piece.animate([
+                {top: `${shiftTop - 85}px`}
+            ],
+            {
+                duration: 200,
+                iterations: 1
+            }).finished.then(()=>{
+            piece.style.top = `${shiftTop - 85}px`;
+        });
+    }
+}
+
 pieces.forEach((piece)=>{
     piece.addEventListener('click', (e)=>{
         const elementNo = parseInt(e.target.innerHTML,10);
         let isIn = [];
         let number = 0;
+        // get index/position of clicked element
         board.forEach((item, key)=>{
             isIn.push(item.findIndex((element)=>{
                 return element === elementNo;
@@ -31,6 +95,7 @@ pieces.forEach((piece)=>{
                 isIn.push([key, number]);
             }
         })
+        //console.log(isIn);
         /**
          * isIn[row, col] - format = value at certain position
          */
@@ -80,61 +145,19 @@ pieces.forEach((piece)=>{
                 // has direction - so update virtual Board
                 // update board with new data
                 // copy all values to board[][]
+
+                updateBoard(board, [clickedCoordX, clickedCoordY],
+                    coordinates);
+                /*
                 const tmpBoardItem = board[coordinates[0]][coordinates[1]];
                 board[coordinates[0]][coordinates[1]] = board[clickedCoordX][clickedCoordY];
-                board[clickedCoordX][clickedCoordY] = tmpBoardItem;
+                board[clickedCoordX][clickedCoordY] = tmpBoardItem;*/
                 //console.log(board);
                 //console.log(coordinates, currentCoordinates);
                 // update screen
                 // move RIGHT so left: +85px;
-                if(dx > 0){
-                    piece.animate([
-                            {left: `${shiftLeft + 85}px`}
-                        ],
-                        {
-                            duration: 300,
-                            iterations: 1
-                        }).finished.then(()=>{
-                            piece.style.left = `${shiftLeft + 85}px`;
-                    });
-                }
-                // move DOWN so Top: +85px;
-                else if(dy > 0){
-                    piece.animate([
-                            {top: `${shiftTop + 85}px`}
-                        ],
-                        {
-                            duration: 300,
-                            iterations: 1
-                        }).finished.then(()=>{
-                        piece.style.top = `${shiftTop + 85}px`;
-                    });
-                }
-                // move left so Left: -85px
-                else if(dx < 0){
-                    piece.animate([
-                            {left: `${shiftLeft - 85}px`}
-                        ],
-                        {
-                            duration: 300,
-                            iterations: 1
-                        }).finished.then(()=>{
-                        piece.style.left = `${shiftLeft - 85}px`;
-                    });
-                }
-                // move Up so Top: -85px;
-                else if(dy < 0){
-                    piece.animate([
-                            {top: `${shiftTop - 85}px`}
-                        ],
-                        {
-                            duration: 300,
-                            iterations: 1
-                        }).finished.then(()=>{
-                        piece.style.top = `${shiftTop - 85}px`;
-                    });
-                }
 
+                doMove(piece,shiftLeft, shiftTop, dx, dy);
             }
         });
 
