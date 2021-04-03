@@ -1,7 +1,7 @@
 const pieces = document.querySelectorAll('.puzzle__piece');
 let index = 0;
 // Init board
-let board = [];;
+let board = [];
 
 for(row=0; row<3;row++){
     board[row] = [];
@@ -16,7 +16,13 @@ for(row=0; row<3;row++){
         }
     }
 }
-const solvedBoard = [...board];
+let solvedBoard =[];
+for(row=0; row<3;row++){
+    solvedBoard[row] = [];
+    for(col=0; col <3; col++){
+        solvedBoard[row][col] = board[row][col];
+    }
+}
 
 /**
  * Function update board
@@ -145,6 +151,7 @@ function getDirection(coordinates, clicked){
 /**
  * Function handleUserMoves
  */
+//localStorage.clear();
 const amount = document.getElementById('amount');
 const theBest = document.getElementById('theBest');
 theBest.innerText = localStorage.getItem('theBest') ?? 0;
@@ -157,7 +164,22 @@ function handleMovesNumber(){
 /**
  * Check is Winner
  */
-function isWinner(){
+let isWinner = false;
+function isPlayerWinner(moves){
+    for(a=0; a <3; a++){
+        for(b=0; b<3;b++){
+            if(board[a][b] !== solvedBoard[a][b]){
+                return false;
+            }
+        }
+    }
+    // winner here
+    const oldWinner = localStorage.getItem('theBest') ?? 0;
+    if(moves < parseInt(oldWinner) || parseInt(oldWinner) === 0){
+        localStorage.setItem('theBest', moves);
+    }
+    console.log(localStorage.getItem('theBest'));
+    return true;
 
 }
 
@@ -165,7 +187,7 @@ function isWinner(){
  * Shuffle board
  */
 let shuffleMode = true;
-let shuffleAmount = 200;
+let shuffleAmount = 20;
 const piecesContainer = [];
 function runShuffle(){
     const clickEvent = new Event('click');
@@ -185,7 +207,7 @@ pieces.forEach((piece)=>{
         const matrix = getMatrix(clickedCoordX, clickedCoordY);
 
         matrix.forEach((coordinates) => {
-
+            if(isWinner){return true;}
             // clicked move surrounded by possible move condition
             if(board[coordinates[0]][coordinates[1]] < 0){
 
@@ -203,6 +225,7 @@ pieces.forEach((piece)=>{
                 }
                 if(!shuffleMode){
                     doMove(piece,shiftLeft, shiftTop, dx, dy);
+                    isPlayerWinner(moves);
                     handleMovesNumber();
                 }else{
                     doMove(piece,shiftLeft, shiftTop, dx, dy, 0);

@@ -4,8 +4,6 @@
     <list default="true" id="3cf66441-0f0c-46c0-b7d2-caa3439d480c" name="Default Changelist" comment="ok">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/components/puzzleGame/board.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/puzzleGame/board.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/puzzleGame.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/puzzleGame.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/puzzle_game/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/puzzle_game/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,13 +178,6 @@
       <workItem from="1617262081006" duration="5930000" />
       <workItem from="1617347236233" duration="1838000" />
       <workItem from="1617432168065" duration="12620000" />
-    </task>
-    <task id="LOCAL-00011" summary="jquery">
-      <created>1617199953539</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1617199953539</updated>
     </task>
     <task id="LOCAL-00012" summary="jquery">
       <created>1617213825889</created>
@@ -524,7 +515,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617447272338</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="ok">
+      <created>1617450551166</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1617450551166</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
