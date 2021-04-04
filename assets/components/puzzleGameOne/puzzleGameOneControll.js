@@ -124,6 +124,12 @@ function runPieceAnimation(piece, delay= 100){
          */
         if(moveLeft){
             console.log('moveLeft');
+            currentLeftPosition = parseInt(piece.style.left);
+            if(currentLeftPosition > 0){
+                piece.style.left = `${currentLeftPosition - 25}px`;
+            }else{
+                piece.style.left = `${0}px`;
+            }
 
             moveLeft = false;
         }
