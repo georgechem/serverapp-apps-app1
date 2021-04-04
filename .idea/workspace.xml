@@ -4,8 +4,6 @@
     <list default="true" id="3cf66441-0f0c-46c0-b7d2-caa3439d480c" name="Default Changelist" comment="ok">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/components/puzzleGameOne/puzzleGameOneControll.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/puzzleGameOne/puzzleGameOneControll.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/puzzleGameOneControll.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/puzzleGameOneControll.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/gameOne/game_puzzle.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gameOne/game_puzzle.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,14 +178,7 @@
       <workItem from="1617262081006" duration="5930000" />
       <workItem from="1617347236233" duration="1838000" />
       <workItem from="1617432168065" duration="12620000" />
-      <workItem from="1617522935633" duration="682000" />
-    </task>
-    <task id="LOCAL-00026" summary="working">
-      <created>1617307450199</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1617307450199</updated>
+      <workItem from="1617522935633" duration="840000" />
     </task>
     <task id="LOCAL-00027" summary="coments">
       <created>1617308104543</created>
@@ -525,7 +516,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617482159876</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="ok">
+      <created>1617523635333</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1617523635334</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -555,9 +553,9 @@
     <MESSAGE value="movement working" />
     <MESSAGE value="gameOne skeleton done" />
     <MESSAGE value="desktop menu updated" />
-    <MESSAGE value="ok" />
     <MESSAGE value="fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed" />
+    <MESSAGE value="ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="ok" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

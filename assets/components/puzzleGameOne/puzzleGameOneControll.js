@@ -5,6 +5,7 @@
  */
 function createPiece(id, amount = 1){
     const pieces = [];
+    const colors = ['red', 'green', 'blue', 'black', 'white'];
     for(s=0; s < amount; s++){
         let piece = document.createElement('div');
         piece.id = `id${id}${s}`;
@@ -12,9 +13,9 @@ function createPiece(id, amount = 1){
         piece.style.width = '40px';
         piece.style.height = '40px';
         piece.style.margin = '5px';
-        piece.style.backgroundColor = '#999999';
+        piece.style.backgroundColor = `${colors[Math.floor(Math.random()*5)]}`;
         piece.style.borderRadius= '5px';
-        piece.style.border = '1px solid #ccc';
+        //piece.style.border = '1px solid #ccc';
         pieces.push(piece);
     }
 
