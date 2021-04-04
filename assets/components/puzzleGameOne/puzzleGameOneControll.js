@@ -4,7 +4,7 @@
  * @returns {HTMLDivElement}
  */
 function createPiece(id, amount = 1, currentBoardWidth = 200){
-    const pieces = [];
+    let piece = null;
     const colors = ['#f00', '#0f0', '#00f', '#000'];
     const pieceSide = 40;
     const pieceMargin = 5;
@@ -15,7 +15,7 @@ function createPiece(id, amount = 1, currentBoardWidth = 200){
         rowPosition.push(start);
     }
     for(s=0; s < amount; s++){
-        let piece = document.createElement('div');
+        piece = document.createElement('div');
         piece.id = `id${id}${s}`;
         piece.style.position = 'absolute';
         piece.style.width = `${pieceSide}px`;
@@ -25,33 +25,46 @@ function createPiece(id, amount = 1, currentBoardWidth = 200){
         const currentColor = colors[Math.floor(Math.random()*4)];
         if(currentColor === '#000'){piece.style.border = `1px solid #aaa`;}
         piece.style.backgroundImage = `radial-gradient( #777 ,${currentColor} )`;
-
         //piece.style.backgroundColor = `${colors[Math.floor(Math.random()*5)]}`;
         piece.style.borderRadius= '5px';
         piece.style.top = '0px';
         piece.style.left = `${rowPosition[Math.floor(Math.random()*rowLength)]}px`
-        pieces.push(piece);
+
     }
 
-    return pieces;
+    return piece;
 }
 
-function appendPiece(pieces, location){
-    pieces.forEach((piece)=>{
-        location.appendChild(piece);
-    })
+/**
+ * Append pieces to Board
+ * @param pieces
+ * @param location
+ */
+function appendPiece(piece, location){
+    location.appendChild(piece);
 }
-
-function mainThread(){
-    const boardWidth = 300;
+/**
+ * Setup board
+ * @param boardWidth
+ */
+function setupBoard(boardWidth){
     const gameBox = document.getElementById('gameBox');
     gameBox.style.width = `${boardWidth+20}px`;
     const board = document.getElementById('board');
     board.style.height = '400px';
     board.style.width = `${boardWidth}px`;
+}
+function runPieceAnimation(piece){
 
-    const pieces = createPiece('piece01',1, boardWidth);
-    appendPiece(pieces, board);
+}
+
+function mainThread(){
+    const boardWidth = 300;
+    setupBoard(boardWidth);
+    const piece = createPiece('piece01',1, boardWidth);
+    appendPiece(piece, board);
+    runPieceAnimation(piece);
+
 
 
 }
