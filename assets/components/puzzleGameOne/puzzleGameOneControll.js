@@ -93,6 +93,15 @@ const movePieceLeft = function(){
 const movePieceRight = function(){
     moveRight = true;
 }
+
+/**
+ * Check is line to clear
+ */
+function isLineToClear(){
+    /**
+     * Working on board, make copy first
+     */
+}
 /**
  * Run animation
  * @param piece
@@ -162,9 +171,13 @@ function runPieceAnimation(piece, delay= 100){
         if(y >= (bottom + 2*pieceMargin - pieceHeight)){
             piece.style.transform = `translateY(${y}px)`;
             virtualBoard.push(piece);
-
             clearInterval(animPiece);
-            if(cycle < 25){
+            /**
+             * Check clearing LINE condition
+             */
+
+
+            if(cycle < 1000){
                 mainThread();
             }else{
                 //console.log(virtualBoard);
