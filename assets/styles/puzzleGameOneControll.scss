@@ -9,29 +9,44 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  &__title{
+    margin: 10px 0;
+    &--score{
+      font-size: 1.2rem;
+      font-weight: bolder;
+    }
+    &--best{
+      font-size: 1.2rem;
+      font-weight: bolder;
+    }
+  }
   &__desc{
     &--col1{
+      font-size: 0.7rem;
       color: black;
-      margin: 0 10px;
+      margin: 0 5px;
       padding: 0 5px;
       border: 1px solid white;
       background-color: #f00;
     }
     &--col2{
+      font-size: 0.7rem;
       color: black;
-      margin: 0 10px;
+      margin: 0 5px;
       padding: 0 5px;
       border: 1px solid white;
       background-color: #0f0;
     }
     &--col3{
-      margin: 0 10px;
+      font-size: 0.7rem;
+      margin: 0 5px;
       padding: 0 5px;
       border: 1px solid white;
       background-color: #00f;
     }
     &--col4{
-      margin: 0 10px;
+      font-size: 0.7rem;
+      margin: 0 5px;
       padding: 0 5px;
       border: 1px solid white;
       background-color: #000;

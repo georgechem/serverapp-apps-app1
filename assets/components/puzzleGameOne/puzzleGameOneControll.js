@@ -52,7 +52,7 @@ function setupBoard(boardWidth){
     const gameBox = document.getElementById('gameBox');
     gameBox.style.width = `${boardWidth}px`;
     const board = document.getElementById('board');
-    board.style.height = '360px';
+    board.style.height = '310px';
     board.style.width = `${boardWidth}px`;
 
     return board;
@@ -209,7 +209,7 @@ function mainThread(){
     const board = setupBoard(boardWidth);
     const piece = createPiece(generateId(), boardWidth);
     appendPiece(piece, board);
-    runPieceAnimation(piece, 200);
+    runPieceAnimation(piece, 600);
 
 
 }
