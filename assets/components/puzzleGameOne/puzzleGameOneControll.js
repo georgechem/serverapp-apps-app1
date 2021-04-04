@@ -109,8 +109,19 @@ function runPieceAnimation(piece, cycle, delay= 100){
 }
 function checkMaxMovementAllowed(currentPiece, currentBottom){
     //console.log(currentPiece.style.transform);
+    const currentLeft = currentPiece.style.left;
+    const currentY = currentPiece.style.transform;
+
+    // get all pieces on the Way for Current
+    const piecesOnWay = virtualBoard.filter((piecePlaced)=>{
+        return piecePlaced.style.left === currentLeft;
+    });
+    // get one from the top
+    console.log(piecesOnWay);
+
     virtualBoard.forEach((piecePlaced)=>{
-        console.log(piecePlaced.style.left);
+        //console.log(currentLeft, currentY);
+        //console.log(piecePlaced.style.left);
     });
 
     return currentBottom;
