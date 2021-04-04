@@ -90,62 +90,49 @@ function runPieceAnimation(piece, delay= 100){
     let currentBottom = boardHeight-pieceHeight;
     let y = 0;
     const animPiece = setInterval(()=>{
-        piece.style.transform = `translateY(${y}px)`;
-        y += (pieceHeight + 2 * pieceMargin);
         /**
          * check is falling is possible
          * use virtualBord for estimation
          */
         currentBottom = checkMaxMovementAllowed(piece, currentBottom);
-
-        if(y >= currentBottom){
+        console.log(currentBottom);
+        if(y >= (currentBottom + 2*pieceMargin)){
             virtualBoard.push(piece);
             clearInterval(animPiece);
-            if(cycle < 5){
+            if(cycle < 10){
                 mainThread();
             }
             cycle++;
-
         }
+        piece.style.transform = `translateY(${y}px)`;
+        y += (pieceHeight +  2 * pieceMargin);
+
     },delay);
 
     return animPiece;
 }
 function checkMaxMovementAllowed(currentPiece, currentBottom){
     //console.log(currentPiece.style.transform);
-    const currentLeft = currentPiece.style.left;
-    const currentY = currentPiece.style.transform;
-
+    const currentLeft = parseInt(currentPiece.style.left);
+    const currentY = parseInt(currentPiece.style.transform);
+    //console.log(currentLeft);
     // get all pieces on the Way for Current
     const piecesOnWay = virtualBoard.filter((piecePlaced)=>{
-        return piecePlaced.style.left === currentLeft;
+        const pieceLeft = parseInt(piecePlaced.style.left);
+        return pieceLeft === currentLeft;
     });
-    const topOne = [];
+    //console.log(piecesOnWay);
+    let rowToTop = [];
     piecesOnWay.forEach((piece)=>{
-        if(topOne.length < 1){
-            topOne.push(piece);
-        }else{
-            const lastOne = topOne.pop();
-            if(parseInt(piece.style.transform) < parseInt(lastOne.style.transform)){
-                topOne.push(piece);
-            }else{
-                topOne.push(lastOne);
-            }
-        }
+        const pieceTop = parseInt(piece.style.transform.slice(11, 14));
+        rowToTop.push(pieceTop);
     });
-    if(topOne.length > 0){
-        const height = parseInt(currentPiece.style.height);
-        const margin = parseInt(currentPiece.style.margin);
-        let tmp = topOne[0].style.transform.slice(11,14);
-        const topLayerPosition = parseInt(tmp);
-        const bottom = topLayerPosition - (margin);
-
-        return bottom;
+    if(rowToTop.length > 0){
+        rowToTop.sort();
+        return rowToTop.pop();
     }
 
-
-    console.log(currentBottom)
-    return parseInt(currentBottom);
+    return currentBottom;
 }
 
 function mainThread(){
