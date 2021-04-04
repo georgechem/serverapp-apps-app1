@@ -73,9 +73,8 @@ function generateId(){
     }
     return id;
 }
-const test = function(piece){
-
-
+const test = function(){
+    mode=true;
 }
 /**
  * Run animation
@@ -92,14 +91,21 @@ function runPieceAnimation(piece, delay= 100){
     const pieceMargin = parseInt(piece.style.margin);
     let currentBottom = boardHeight-pieceHeight- 2*pieceMargin;
     let y = 0;
+    mode = false;
     const animPiece = setInterval(()=>{
+        if(mode){
+            console.log('changed');
+            mode = false;
+        }
         /**
          * check is falling is possible
          * use virtualBord for estimation
          */
+
         const bottom = checkMaxMovementAllowed(piece, currentBottom);
         //console.log(virtualBoard);
         if(y >= (bottom + 2*pieceMargin - pieceHeight)){
+            mode = false;
             piece.style.transform = `translateY(${y}px)`;
             virtualBoard.push(piece);
             clearInterval(animPiece);
@@ -148,14 +154,16 @@ function mainThread(){
     const board = setupBoard(boardWidth);
     const piece = createPiece(generateId(), boardWidth);
     appendPiece(piece, board);
-    runPieceAnimation(piece, 50);
+    runPieceAnimation(piece, 100);
 
 
 }
-const controlR = document.getElementById('btnRight');
-const controlL = document.getElementById('btnLeft');
+const changeColor = document.getElementById('btnChange');
 cycle = 0;
+mode = false;
 virtualBoard =[];
 mainThread();
-
+changeColor.addEventListener('click',function(){
+    test();
+}.bind(mode));
 
