@@ -82,7 +82,7 @@ function generateId(){
  * @param delay
  * @returns {number}
  */
-function runPieceAnimation(piece, cycle, delay= 100){
+function runPieceAnimation(piece, delay= 100){
     const board = document.getElementById('board');
     const boardHeight = parseInt(board.style.height);
     const pieceHeight = parseInt(piece.style.height);
@@ -101,7 +101,11 @@ function runPieceAnimation(piece, cycle, delay= 100){
         if(y >= currentBottom){
             virtualBoard.push(piece);
             clearInterval(animPiece);
-            cycle = true;
+            if(cycle < 5){
+                mainThread();
+            }
+            cycle++;
+
         }
     },delay);
 
@@ -116,34 +120,41 @@ function checkMaxMovementAllowed(currentPiece, currentBottom){
     const piecesOnWay = virtualBoard.filter((piecePlaced)=>{
         return piecePlaced.style.left === currentLeft;
     });
-    // get one from the top
-    console.log(piecesOnWay);
-
-    virtualBoard.forEach((piecePlaced)=>{
-        //console.log(currentLeft, currentY);
-        //console.log(piecePlaced.style.left);
+    const topOne = [];
+    piecesOnWay.forEach((piece)=>{
+        if(topOne.length < 1){
+            topOne.push(piece);
+        }else{
+            const lastOne = topOne.pop();
+            if(parseInt(piece.style.transform) < parseInt(lastOne.style.transform)){
+                topOne.push(piece);
+            }else{
+                topOne.push(lastOne);
+            }
+        }
     });
+    if(topOne.length > 0){
+        const height = parseInt(currentPiece.style.height);
+        const margin = parseInt(currentPiece.style.margin);
+        const topLayerPosition = parseInt(topOne[0].style.transform);
+        console.log(height, margin, topLayerPosition);
+    }
 
-    return currentBottom;
+
+    console.log(currentBottom)
+    return parseInt(currentBottom);
 }
 
 function mainThread(){
-    if(cycle){return false;}
     const boardWidth = 300;
     const board = setupBoard(boardWidth);
     const piece = createPiece(generateId(),1, boardWidth);
     appendPiece(piece, board);
-    runPieceAnimation(piece, cycle, 150);
+    runPieceAnimation(piece, 10);
 
 
 }
-let cycle = false;
+cycle = 0;
 virtualBoard =[];
-const main = setInterval(()=>{
-    mainThread();
-    if(virtualBoard.length > 1){
-        clearInterval(main);
-    }
-},1000)
-//main;
-//mainThread();
+mainThread();
+
