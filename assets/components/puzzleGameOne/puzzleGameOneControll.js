@@ -136,8 +136,11 @@ function checkMaxMovementAllowed(currentPiece, currentBottom){
     if(topOne.length > 0){
         const height = parseInt(currentPiece.style.height);
         const margin = parseInt(currentPiece.style.margin);
-        const topLayerPosition = parseInt(topOne[0].style.transform);
-        console.log(height, margin, topLayerPosition);
+        let tmp = topOne[0].style.transform.slice(11,14);
+        const topLayerPosition = parseInt(tmp);
+        const bottom = topLayerPosition - (margin);
+
+        return bottom;
     }
 
 
@@ -150,7 +153,7 @@ function mainThread(){
     const board = setupBoard(boardWidth);
     const piece = createPiece(generateId(),1, boardWidth);
     appendPiece(piece, board);
-    runPieceAnimation(piece, 10);
+    runPieceAnimation(piece, 100);
 
 
 }
