@@ -9,6 +9,34 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  &__desc{
+    &--col1{
+      color: black;
+      margin: 0 15px;
+      padding: 0 5px;
+      border: 1px solid white;
+      background-color: #f00;
+    }
+    &--col2{
+      color: black;
+      margin: 0 15px;
+      padding: 0 5px;
+      border: 1px solid white;
+      background-color: #0f0;
+    }
+    &--col3{
+      margin: 0 15px;
+      padding: 0 5px;
+      border: 1px solid white;
+      background-color: #00f;
+    }
+    &--col4{
+      margin: 0 15px;
+      padding: 0 5px;
+      border: 1px solid white;
+      background-color: #000;
+    }
+  }
   &__board{
     position: relative;
     background-color: #444;
