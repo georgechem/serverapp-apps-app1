@@ -16,7 +16,7 @@ function createPiece(id, amount = 1, currentBoardWidth = 200){
     }
     for(s=0; s < amount; s++){
         piece = document.createElement('div');
-        piece.id = `id${id}${s}`;
+        piece.id = `${id}`;
         piece.style.position = 'absolute';
         piece.style.width = `${pieceSide}px`;
         piece.style.height = `${pieceSide}px`;
@@ -29,6 +29,8 @@ function createPiece(id, amount = 1, currentBoardWidth = 200){
         piece.style.borderRadius= '5px';
         piece.style.top = '0px';
         piece.style.left = `${rowPosition[Math.floor(Math.random()*rowLength)]}px`
+        piece.style.transform = 'translateY(0px)';
+        piece.setAttribute('name', currentColor );
 
     }
 
@@ -37,7 +39,7 @@ function createPiece(id, amount = 1, currentBoardWidth = 200){
 
 /**
  * Append pieces to Board
- * @param pieces
+ * @param piece
  * @param location
  */
 function appendPiece(piece, location){
@@ -49,23 +51,59 @@ function appendPiece(piece, location){
  */
 function setupBoard(boardWidth){
     const gameBox = document.getElementById('gameBox');
-    gameBox.style.width = `${boardWidth+20}px`;
+    gameBox.style.width = `${boardWidth}px`;
     const board = document.getElementById('board');
     board.style.height = '400px';
     board.style.width = `${boardWidth}px`;
-}
-function runPieceAnimation(piece){
 
+    return board;
+}
+/**
+ * Run Piece animation
+ * @param piece
+ * @param cycle
+ * @param delay
+ * @returns {number}
+ */
+function generateId(){
+    let id = '';
+    let charAt = '';
+    for(i=0; i<10;i++){
+        charAt =String.fromCharCode(Math.floor(Math.random()*25)+65);
+        id += charAt;
+    }
+    return id;
+}
+function runPieceAnimation(piece, cycle, delay= 100){
+    console.log(cycle);
+    const board = document.getElementById('board');
+    const boardHeight = parseInt(board.style.height);
+    const pieceHeight = parseInt(piece.style.height);
+    const pieceMargin = parseInt(piece.style.margin);
+    let y = 0;
+    const animPiece = setInterval(()=>{
+        piece.style.transform = `translateY(${y}px)`;
+        y += (pieceHeight + 2 * pieceMargin);
+        if(y >= (boardHeight-pieceHeight)){
+            virtualBoard.push(piece);
+            console.log(piece.id);
+            clearInterval(animPiece);
+            cycle = false;
+        }
+    },delay);
+
+    return animPiece;
 }
 
 function mainThread(){
+    let cycle = true;
     const boardWidth = 300;
-    setupBoard(boardWidth);
-    const piece = createPiece('piece01',1, boardWidth);
+    const board = setupBoard(boardWidth);
+    const piece = createPiece(generateId(),1, boardWidth);
     appendPiece(piece, board);
-    runPieceAnimation(piece);
-
+    runPieceAnimation(piece, cycle);
 
 
 }
+virtualBoard =[];
 mainThread();
