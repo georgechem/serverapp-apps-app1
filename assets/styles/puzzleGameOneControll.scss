@@ -17,12 +17,20 @@ body {
   &__btn{
     margin: 10px 0;
     display: flex;
-    justify-content: center;
-    &--left{
+    justify-content: space-between;
+    &--color{
       border-radius: 5px;
       outline: none;
       cursor: pointer;
       width:150px;
+      font-size: 1.3rem;
+      padding: 5px;
+    }
+    &--left{
+      border-radius: 5px;
+      outline: none;
+      cursor: pointer;
+      width:50px;
       font-size: 1.3rem;
       padding: 5px;
     }
