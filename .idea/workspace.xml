@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3cf66441-0f0c-46c0-b7d2-caa3439d480c" name="Default Changelist" comment="ok">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/components/puzzleGameOne/puzzleGameOneControll.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/components/puzzleGameOne/puzzleGameOneControll.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/styles/puzzleGameOneControll.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/puzzleGameOneControll.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/gameOne/game_puzzle.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gameOne/game_puzzle.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,13 +180,6 @@
       <workItem from="1617347236233" duration="1838000" />
       <workItem from="1617432168065" duration="12620000" />
       <workItem from="1617522935633" duration="21186000" />
-    </task>
-    <task id="LOCAL-00045" summary="ok">
-      <created>1617397850438</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1617397850438</updated>
     </task>
     <task id="LOCAL-00046" summary="ok">
       <created>1617399347590</created>
@@ -524,7 +517,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617563508507</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="ok">
+      <created>1617564791543</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1617564791543</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

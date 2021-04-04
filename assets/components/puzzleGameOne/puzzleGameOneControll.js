@@ -73,8 +73,19 @@ function generateId(){
     }
     return id;
 }
+
+/**
+ * Change Color
+ */
 const changePieceColor = function(){
-    changeColor=true;
+    changeColor = true;
+}
+
+/**
+ * Move to left
+ */
+const movePieceLeft = function(){
+    moveLeft = true;
 }
 /**
  * Run animation
@@ -92,9 +103,13 @@ function runPieceAnimation(piece, delay= 100){
     let currentBottom = boardHeight-pieceHeight- 2*pieceMargin;
     let y = 0;
     changeColor = false;
+    moveLeft = false;
     const colorFromMode = ['#f00', '#0f0', '#00f', '#000'];
     let chosen = 0;
     const animPiece = setInterval(()=>{
+        /**
+         * ChangeColor
+         */
         if(changeColor){
             if(chosen > 3){
                 chosen = 0;
@@ -104,6 +119,11 @@ function runPieceAnimation(piece, delay= 100){
             changeColor = false;
             chosen++;
         }
+        /**
+         * Move to left
+         */
+
+
         /**
          * check is falling is possible
          * use virtualBord for estimation
@@ -168,6 +188,7 @@ function mainThread(){
 const changeColorBtn = document.getElementById('btnChange');
 cycle = 0;
 changeColor = false;
+moveLeft = false;
 virtualBoard =[];
 mainThread();
 changeColorBtn.addEventListener('click',function(){
