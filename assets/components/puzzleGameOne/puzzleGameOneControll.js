@@ -3,7 +3,7 @@
  * @param id
  * @returns {HTMLDivElement}
  */
-function createPiece(id, amount = 1, currentBoardWidth = 200){
+function createPiece(id, currentBoardWidth = 200){
     let piece = null;
     const colors = ['#f00', '#0f0', '#00f', '#000'];
     const pieceSide = 20;
@@ -14,26 +14,25 @@ function createPiece(id, amount = 1, currentBoardWidth = 200){
     for(start = 0;start < currentBoardWidth ;start += pieceStep){
         rowPosition.push(start);
     }
-    for(s=0; s < amount; s++){
-        piece = document.createElement('div');
-        piece.id = `${id}`;
-        piece.style.position = 'absolute';
-        piece.style.width = `${pieceSide}px`;
-        piece.style.height = `${pieceSide}px`;
-        piece.style.margin = `${pieceMargin}px`;
-        piece.style.border = `1px solid #222`;
-        const currentColor = colors[Math.floor(Math.random()*4)];
-        if(currentColor === '#000'){piece.style.border = `1px solid #aaa`;}
-        piece.style.backgroundImage = `radial-gradient( #777 ,${currentColor} )`;
-        //piece.style.backgroundColor = `${colors[Math.floor(Math.random()*5)]}`;
-        piece.style.borderRadius= '5px';
-        piece.style.top = '0px';
-        piece.style.left = `${rowPosition[Math.floor(Math.random()*rowLength)]}px`
-        piece.style.transform = 'translateY(0px)';
-        piece.setAttribute('name', currentColor );
 
-    }
-    console.log(rowLength);
+    piece = document.createElement('div');
+    piece.id = `${id}`;
+    piece.style.position = 'absolute';
+    piece.style.width = `${pieceSide}px`;
+    piece.style.height = `${pieceSide}px`;
+    piece.style.margin = `${pieceMargin}px`;
+    piece.style.border = `1px solid #222`;
+    const currentColor = colors[Math.floor(Math.random()*4)];
+    if(currentColor === '#000'){piece.style.border = `1px solid #aaa`;}
+    piece.style.backgroundImage = `radial-gradient( #777 ,${currentColor} )`;
+    //piece.style.backgroundColor = `${colors[Math.floor(Math.random()*5)]}`;
+    piece.style.borderRadius= '5px';
+    piece.style.top = '0px';
+    piece.style.left = `${rowPosition[Math.floor(Math.random()*rowLength)]}px`
+    piece.style.transform = 'translateY(0px)';
+    piece.setAttribute('name', currentColor );
+
+
     return piece;
 }
 
@@ -74,7 +73,9 @@ function generateId(){
     }
     return id;
 }
-
+const test = function(piece){
+    console.log(piece);
+}
 /**
  * Run animation
  * @param piece
@@ -83,6 +84,7 @@ function generateId(){
  * @returns {number}
  */
 function runPieceAnimation(piece, delay= 100){
+
     const board = document.getElementById('board');
     const boardHeight = parseInt(board.style.height);
     const pieceHeight = parseInt(piece.style.height);
@@ -142,13 +144,17 @@ function checkMaxMovementAllowed(currentPiece, currentBottom){
 function mainThread(){
     const boardWidth = 300;
     const board = setupBoard(boardWidth);
-    const piece = createPiece(generateId(),1, boardWidth);
+    const piece = createPiece(generateId(), boardWidth);
     appendPiece(piece, board);
+    test(piece);
     runPieceAnimation(piece, 50);
 
 
 }
+const controlR = document.getElementById('btnRight');
+const controlL = document.getElementById('btnLeft');
 cycle = 0;
 virtualBoard =[];
 mainThread();
+
 
