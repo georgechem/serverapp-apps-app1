@@ -96,15 +96,15 @@ function runPieceAnimation(piece, delay= 100){
          */
         const bottom = checkMaxMovementAllowed(piece, currentBottom);
         //console.log(virtualBoard);
-        if(y >= (bottom + 2*pieceMargin)){
-            y = bottom;
+        if(y >= (bottom + 2*pieceMargin - pieceHeight)){
             piece.style.transform = `translateY(${y}px)`;
             virtualBoard.push(piece);
             clearInterval(animPiece);
-            if(cycle < 10){
+            if(cycle < 25){
                 mainThread();
+            }else{
+                //console.log(virtualBoard);
             }
-            console.log(virtualBoard);
             cycle++;
         }
         piece.style.transform = `translateY(${y}px)`;
@@ -116,6 +116,8 @@ function runPieceAnimation(piece, delay= 100){
 }
 function checkMaxMovementAllowed(currentPiece, currentBottom){
     const currentLeft = parseInt(currentPiece.style.left);
+    const currentHeight = parseInt(currentPiece.style.height);
+    const currentMargin = parseInt(currentPiece.style.margin);
 
     // get all pieces on the Way for Current
     const piecesOnWay = virtualBoard.filter((piecePlaced)=>{
@@ -123,14 +125,15 @@ function checkMaxMovementAllowed(currentPiece, currentBottom){
         return pieceLeft === currentLeft;
     });
     //console.log(piecesOnWay);
-    let rowToTop = [];
+    const rowToTop = [];
     piecesOnWay.forEach((piece)=>{
         const pieceTop = parseInt(piece.style.transform.slice(11, 14));
         rowToTop.push(pieceTop);
     });
+    //console.log(rowToTop);
     if(rowToTop.length > 0){
         rowToTop.sort();
-       return rowToTop[0];
+       return rowToTop[0] - currentHeight - 2 * currentMargin;
     }
 
     return currentBottom;
