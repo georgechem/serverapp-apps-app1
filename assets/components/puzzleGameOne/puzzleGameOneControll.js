@@ -88,6 +88,12 @@ const movePieceLeft = function(){
     moveLeft = true;
 }
 /**
+ * Move to Right
+ */
+const movePieceRight = function(){
+    moveRight = true;
+}
+/**
  * Run animation
  * @param piece
  * @param cycle
@@ -104,6 +110,7 @@ function runPieceAnimation(piece, delay= 100){
     let y = 0;
     changeColor = false;
     moveLeft = false;
+    moveRight = false;
     const colorFromMode = ['#f00', '#0f0', '#00f', '#000'];
     let chosen = 0;
     const animPiece = setInterval(()=>{
@@ -123,15 +130,26 @@ function runPieceAnimation(piece, delay= 100){
          * Move to left
          */
         if(moveLeft){
-            console.log('moveLeft');
             currentLeftPosition = parseInt(piece.style.left);
             if(currentLeftPosition > 0){
                 piece.style.left = `${currentLeftPosition - 25}px`;
             }else{
-                piece.style.left = `${0}px`;
+                piece.style.left = `0px`;
             }
 
             moveLeft = false;
+        }
+        /**
+         * Move to right
+         */
+        if(moveRight){
+            currentRightPosition = parseInt(piece.style.left);
+            if(currentRightPosition > 270){
+                piece.style.left = `275px`;
+            }else{
+                piece.style.left = `${currentRightPosition + 25}px`;
+            }
+            moveRight = false;
         }
 
         /**
@@ -197,9 +215,11 @@ function mainThread(){
 }
 const changeColorBtn = document.getElementById('btnChange');
 const moveLeftBtn = document.getElementById('btnLeft');
+const moveRightBtn = document.getElementById('btnRight');
 cycle = 0;
 changeColor = false;
 moveLeft = false;
+moveRight = false;
 virtualBoard =[];
 mainThread();
 changeColorBtn.addEventListener('click',function(){
@@ -208,4 +228,6 @@ changeColorBtn.addEventListener('click',function(){
 moveLeftBtn.addEventListener('click',function(){
     movePieceLeft();
 });
-
+moveRightBtn.addEventListener('click',function(){
+    movePieceRight();
+});

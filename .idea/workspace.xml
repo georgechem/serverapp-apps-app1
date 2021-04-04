@@ -180,13 +180,6 @@
       <workItem from="1617432168065" duration="12620000" />
       <workItem from="1617522935633" duration="21186000" />
     </task>
-    <task id="LOCAL-00048" summary="movement working">
-      <created>1617434406574</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1617434406574</updated>
-    </task>
     <task id="LOCAL-00049" summary="ok">
       <created>1617438139438</created>
       <option name="number" value="00049" />
@@ -523,7 +516,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617567469513</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="left is working">
+      <created>1617567920485</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1617567920485</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -556,7 +556,8 @@
     <MESSAGE value="fixed" />
     <MESSAGE value="ok" />
     <MESSAGE value="momoveLeft to the console" />
-    <option name="LAST_COMMIT_MESSAGE" value="momoveLeft to the console" />
+    <MESSAGE value="left is working" />
+    <option name="LAST_COMMIT_MESSAGE" value="left is working" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
