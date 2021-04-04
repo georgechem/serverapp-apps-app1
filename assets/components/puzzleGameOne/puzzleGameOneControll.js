@@ -6,9 +6,9 @@
 function createPiece(id, amount = 1, currentBoardWidth = 200){
     let piece = null;
     const colors = ['#f00', '#0f0', '#00f', '#000'];
-    const pieceSide = 40;
-    const pieceMargin = 5;
-    const rowLength = currentBoardWidth/(pieceSide+2*pieceMargin);
+    const pieceSide = 20;
+    const pieceMargin = 2.5;
+    const rowLength = Math.floor(currentBoardWidth/(pieceSide+2*pieceMargin));
     const pieceStep = currentBoardWidth/rowLength;
     const rowPosition = [];
     for(start = 0;start < currentBoardWidth ;start += pieceStep){
@@ -33,7 +33,7 @@ function createPiece(id, amount = 1, currentBoardWidth = 200){
         piece.setAttribute('name', currentColor );
 
     }
-
+    console.log(rowLength);
     return piece;
 }
 
@@ -53,7 +53,7 @@ function setupBoard(boardWidth){
     const gameBox = document.getElementById('gameBox');
     gameBox.style.width = `${boardWidth}px`;
     const board = document.getElementById('board');
-    board.style.height = '400px';
+    board.style.height = '360px';
     board.style.width = `${boardWidth}px`;
 
     return board;
