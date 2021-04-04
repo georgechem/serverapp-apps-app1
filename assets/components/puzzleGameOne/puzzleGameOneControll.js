@@ -29,7 +29,7 @@ function appendPiece(pieces, location){
 
 function mainThread(){
     const board = document.getElementById('board');
-    board.style.height = '300px';
+    board.style.height = '400px';
 
     const pieces = createPiece('piece01');
     appendPiece(pieces, board);

@@ -8,11 +8,33 @@ body {
   margin: 20px auto;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  width:300px;
   &__board{
     position: relative;
     background-color: #444;
-    width:300px;
     border-radius: 5px;
+  }
+  &__btn{
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    &--left{
+      border-radius: 5px;
+      outline: none;
+      cursor: pointer;
+      width:50px;
+      font-size: 1.3rem;
+      padding: 5px;
+    }
+    &--right{
+      border-radius: 5px;
+      outline: none;
+      padding: 5px;
+      cursor: pointer;
+      width: 50px;
+      font-size: 1.3rem;
+    }
   }
 
 }
