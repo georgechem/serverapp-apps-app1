@@ -74,36 +74,65 @@ function generateId(){
     }
     return id;
 }
+
+/**
+ * Run animation
+ * @param piece
+ * @param cycle
+ * @param delay
+ * @returns {number}
+ */
 function runPieceAnimation(piece, cycle, delay= 100){
-    console.log(cycle);
     const board = document.getElementById('board');
     const boardHeight = parseInt(board.style.height);
     const pieceHeight = parseInt(piece.style.height);
     const pieceMargin = parseInt(piece.style.margin);
+    let currentBottom = boardHeight-pieceHeight;
     let y = 0;
     const animPiece = setInterval(()=>{
         piece.style.transform = `translateY(${y}px)`;
         y += (pieceHeight + 2 * pieceMargin);
-        if(y >= (boardHeight-pieceHeight)){
+        /**
+         * check is falling is possible
+         * use virtualBord for estimation
+         */
+        currentBottom = checkMaxMovementAllowed(piece, currentBottom);
+
+        if(y >= currentBottom){
             virtualBoard.push(piece);
-            console.log(piece.id);
             clearInterval(animPiece);
-            cycle = false;
+            cycle = true;
         }
     },delay);
 
     return animPiece;
 }
+function checkMaxMovementAllowed(currentPiece, currentBottom){
+    //console.log(currentPiece.style.transform);
+    virtualBoard.forEach((piecePlaced)=>{
+        console.log(piecePlaced.style.left);
+    });
+
+    return currentBottom;
+}
 
 function mainThread(){
-    let cycle = true;
+    if(cycle){return false;}
     const boardWidth = 300;
     const board = setupBoard(boardWidth);
     const piece = createPiece(generateId(),1, boardWidth);
     appendPiece(piece, board);
-    runPieceAnimation(piece, cycle);
+    runPieceAnimation(piece, cycle, 150);
 
 
 }
+let cycle = false;
 virtualBoard =[];
-mainThread();
+const main = setInterval(()=>{
+    mainThread();
+    if(virtualBoard.length > 1){
+        clearInterval(main);
+    }
+},1000)
+//main;
+//mainThread();
