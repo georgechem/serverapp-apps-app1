@@ -87,21 +87,24 @@ function runPieceAnimation(piece, delay= 100){
     const boardHeight = parseInt(board.style.height);
     const pieceHeight = parseInt(piece.style.height);
     const pieceMargin = parseInt(piece.style.margin);
-    let currentBottom = boardHeight-pieceHeight;
+    let currentBottom = boardHeight-pieceHeight- 2*pieceMargin;
     let y = 0;
     const animPiece = setInterval(()=>{
         /**
          * check is falling is possible
          * use virtualBord for estimation
          */
-        currentBottom = checkMaxMovementAllowed(piece, currentBottom);
-        console.log(currentBottom);
-        if(y >= (currentBottom + 2*pieceMargin)){
+        const bottom = checkMaxMovementAllowed(piece, currentBottom);
+        //console.log(virtualBoard);
+        if(y >= (bottom + 2*pieceMargin)){
+            y = bottom;
+            piece.style.transform = `translateY(${y}px)`;
             virtualBoard.push(piece);
             clearInterval(animPiece);
             if(cycle < 10){
                 mainThread();
             }
+            console.log(virtualBoard);
             cycle++;
         }
         piece.style.transform = `translateY(${y}px)`;
@@ -112,10 +115,8 @@ function runPieceAnimation(piece, delay= 100){
     return animPiece;
 }
 function checkMaxMovementAllowed(currentPiece, currentBottom){
-    //console.log(currentPiece.style.transform);
     const currentLeft = parseInt(currentPiece.style.left);
-    const currentY = parseInt(currentPiece.style.transform);
-    //console.log(currentLeft);
+
     // get all pieces on the Way for Current
     const piecesOnWay = virtualBoard.filter((piecePlaced)=>{
         const pieceLeft = parseInt(piecePlaced.style.left);
@@ -129,7 +130,7 @@ function checkMaxMovementAllowed(currentPiece, currentBottom){
     });
     if(rowToTop.length > 0){
         rowToTop.sort();
-        return rowToTop.pop();
+       return rowToTop[0];
     }
 
     return currentBottom;
@@ -140,7 +141,7 @@ function mainThread(){
     const board = setupBoard(boardWidth);
     const piece = createPiece(generateId(),1, boardWidth);
     appendPiece(piece, board);
-    runPieceAnimation(piece, 100);
+    runPieceAnimation(piece, 50);
 
 
 }
