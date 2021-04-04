@@ -73,8 +73,8 @@ function generateId(){
     }
     return id;
 }
-const test = function(){
-    mode=true;
+const changePieceColor = function(){
+    changeColor=true;
 }
 /**
  * Run animation
@@ -91,18 +91,17 @@ function runPieceAnimation(piece, delay= 100){
     const pieceMargin = parseInt(piece.style.margin);
     let currentBottom = boardHeight-pieceHeight- 2*pieceMargin;
     let y = 0;
-    mode = false;
+    changeColor = false;
     const colorFromMode = ['#f00', '#0f0', '#00f', '#000'];
     let chosen = 0;
     const animPiece = setInterval(()=>{
-        if(mode){
+        if(changeColor){
             if(chosen > 3){
                 chosen = 0;
             }
             const newColor = colorFromMode[chosen];
             piece.style.backgroundImage = `radial-gradient( #777 ,${newColor} )`;
-            console.log(newColor);
-            mode = false;
+            changeColor = false;
             chosen++;
         }
         /**
@@ -113,7 +112,7 @@ function runPieceAnimation(piece, delay= 100){
         const bottom = checkMaxMovementAllowed(piece, currentBottom);
         //console.log(virtualBoard);
         if(y >= (bottom + 2*pieceMargin - pieceHeight)){
-            mode = false;
+            changeColor = false;
             piece.style.transform = `translateY(${y}px)`;
             virtualBoard.push(piece);
             clearInterval(animPiece);
@@ -166,12 +165,12 @@ function mainThread(){
 
 
 }
-const changeColor = document.getElementById('btnChange');
+const changeColorBtn = document.getElementById('btnChange');
 cycle = 0;
-mode = false;
+changeColor = false;
 virtualBoard =[];
 mainThread();
-changeColor.addEventListener('click',function(){
-    test();
-}.bind(mode));
+changeColorBtn.addEventListener('click',function(){
+    changePieceColor();
+});
 
