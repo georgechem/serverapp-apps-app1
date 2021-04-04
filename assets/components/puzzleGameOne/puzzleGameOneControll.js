@@ -122,7 +122,11 @@ function runPieceAnimation(piece, delay= 100){
         /**
          * Move to left
          */
+        if(moveLeft){
+            console.log('moveLeft');
 
+            moveLeft = false;
+        }
 
         /**
          * check is falling is possible
@@ -186,6 +190,7 @@ function mainThread(){
 
 }
 const changeColorBtn = document.getElementById('btnChange');
+const moveLeftBtn = document.getElementById('btnLeft');
 cycle = 0;
 changeColor = false;
 moveLeft = false;
@@ -193,5 +198,8 @@ virtualBoard =[];
 mainThread();
 changeColorBtn.addEventListener('click',function(){
     changePieceColor();
+});
+moveLeftBtn.addEventListener('click',function(){
+    movePieceLeft();
 });
 
