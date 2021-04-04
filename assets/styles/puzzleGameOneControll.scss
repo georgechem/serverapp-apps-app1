@@ -17,12 +17,12 @@ body {
   &__btn{
     margin: 10px 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     &--left{
       border-radius: 5px;
       outline: none;
       cursor: pointer;
-      width:50px;
+      width:150px;
       font-size: 1.3rem;
       padding: 5px;
     }

@@ -74,7 +74,8 @@ function generateId(){
     return id;
 }
 const test = function(piece){
-    console.log(piece);
+
+
 }
 /**
  * Run animation
@@ -112,6 +113,7 @@ function runPieceAnimation(piece, delay= 100){
         piece.style.transform = `translateY(${y}px)`;
         y += (pieceHeight +  2 * pieceMargin);
 
+
     },delay);
 
     return animPiece;
@@ -146,7 +148,6 @@ function mainThread(){
     const board = setupBoard(boardWidth);
     const piece = createPiece(generateId(), boardWidth);
     appendPiece(piece, board);
-    test(piece);
     runPieceAnimation(piece, 50);
 
 
