@@ -160,9 +160,9 @@ function runPieceAnimation(piece, delay= 100){
         const bottom = checkMaxMovementAllowed(piece, currentBottom);
         //console.log(virtualBoard);
         if(y >= (bottom + 2*pieceMargin - pieceHeight)){
-            changeColor = false;
             piece.style.transform = `translateY(${y}px)`;
             virtualBoard.push(piece);
+
             clearInterval(animPiece);
             if(cycle < 25){
                 mainThread();
@@ -170,6 +170,8 @@ function runPieceAnimation(piece, delay= 100){
                 //console.log(virtualBoard);
             }
             cycle++;
+            score++;
+            scoreHook.innerText = `${score}`;
         }
         piece.style.transform = `translateY(${y}px)`;
         y += (pieceHeight +  2 * pieceMargin);
@@ -217,11 +219,19 @@ const changeColorBtn = document.getElementById('btnChange');
 const moveLeftBtn = document.getElementById('btnLeft');
 const moveRightBtn = document.getElementById('btnRight');
 cycle = 0;
+score = 0;
 changeColor = false;
 moveLeft = false;
 moveRight = false;
 virtualBoard =[];
 mainThread();
+/**
+ * Points
+ */
+const scoreHook = document.getElementById('score')
+const theBestHook = document.getElementById('theBest');
+
+
 changeColorBtn.addEventListener('click',function(){
     changePieceColor();
 });
