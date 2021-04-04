@@ -92,10 +92,18 @@ function runPieceAnimation(piece, delay= 100){
     let currentBottom = boardHeight-pieceHeight- 2*pieceMargin;
     let y = 0;
     mode = false;
+    const colorFromMode = ['#f00', '#0f0', '#00f', '#000'];
+    let chosen = 0;
     const animPiece = setInterval(()=>{
         if(mode){
-            console.log('changed');
+            if(chosen > 3){
+                chosen = 0;
+            }
+            const newColor = colorFromMode[chosen];
+            piece.style.backgroundImage = `radial-gradient( #777 ,${newColor} )`;
+            console.log(newColor);
             mode = false;
+            chosen++;
         }
         /**
          * check is falling is possible
@@ -154,7 +162,7 @@ function mainThread(){
     const board = setupBoard(boardWidth);
     const piece = createPiece(generateId(), boardWidth);
     appendPiece(piece, board);
-    runPieceAnimation(piece, 100);
+    runPieceAnimation(piece, 200);
 
 
 }
