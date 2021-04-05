@@ -160,12 +160,16 @@ function runPieceAnimation(piece, delay= 100){
             }
             moveRight = false;
         }
+        /**
+         * Check clearing LINE condition
+         * before bottom calculated as cleared line may affects bottom
+         */
+
 
         /**
          * check is falling is possible
          * use virtualBord for estimation
          */
-
         const bottom = checkMaxMovementAllowed(piece, currentBottom);
         //console.log(virtualBoard);
         if(y >= (bottom + 2*pieceMargin - pieceHeight)){
@@ -173,10 +177,6 @@ function runPieceAnimation(piece, delay= 100){
             piece.style.transform = `translateY(${y}px)`;
             virtualBoard.push(piece);
             clearInterval(animPiece);
-            /**
-             * Check clearing LINE condition
-             */
-
 
             if(cycle < 200){
                 mainThread();
