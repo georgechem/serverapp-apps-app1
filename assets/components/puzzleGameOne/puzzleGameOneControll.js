@@ -97,10 +97,21 @@ const movePieceRight = function(){
 /**
  * Check is line to clear
  */
-function isLineToClear(){
+function isLineToClear(y){
     /**
      * Working on board, make copy first
      */
+    if(virtualBoard.length < 1){
+        return;
+    }
+    const rowInBoard = virtualBoard.filter((piece)=>{
+        const pieceTranslateY = parseInt(piece.style.transform.slice(11,14).trim());
+        return y === pieceTranslateY;
+    });
+    if(rowInBoard.length < 12){
+        return;
+    }
+    console.log(rowInBoard);
 }
 /**
  * Run animation
@@ -109,7 +120,7 @@ function isLineToClear(){
  * @param delay
  * @returns {number}
  */
-function runPieceAnimation(piece, delay= 100){
+function runPieceAnimation(piece, delay= 100, boardInfo = null){
 
     const board = document.getElementById('board');
     const boardHeight = parseInt(board.style.height);
@@ -160,11 +171,6 @@ function runPieceAnimation(piece, delay= 100){
             }
             moveRight = false;
         }
-        /**
-         * Check clearing LINE condition
-         * before bottom calculated as cleared line may affects bottom
-         */
-
 
         /**
          * check is falling is possible
@@ -177,8 +183,13 @@ function runPieceAnimation(piece, delay= 100){
             piece.style.transform = `translateY(${y}px)`;
             virtualBoard.push(piece);
             clearInterval(animPiece);
+            /**
+             * Check clearing LINE condition
+             */
+            isLineToClear(y);
 
-            if(cycle < 200){
+
+            if(cycle < 50){
                 mainThread();
             }else{
                 //console.log(virtualBoard);
@@ -227,7 +238,7 @@ function mainThread(){
     const board = setupBoard(boardWidth);
     const piece = createPiece(generateId(), boardWidth);
     appendPiece(piece, board);
-    runPieceAnimation(piece, 10);
+    runPieceAnimation(piece, 10, board);
 
 
 }
