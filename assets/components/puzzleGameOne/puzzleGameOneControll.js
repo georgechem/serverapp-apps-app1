@@ -109,19 +109,19 @@ const movePieceRight = function(){
 /**
  * Check is line to clear
  */
-function isLineToClear(y){
+function isLineToClear(y, board){
     /**
      * Working on board, make copy first
      */
     if(virtualBoard.length < 1){
-        return;
+        return false;
     }
     const rowInBoard = virtualBoard.filter((piece)=>{
         const pieceTranslateY = parseInt(piece.style.transform.slice(11,14).trim());
         return y === pieceTranslateY;
     });
     if(rowInBoard.length < 12){
-        return;
+        return false;
     }
     //const rowInBoard
     const colorInCurrentRow = rowInBoard[0].getAttribute('name');
@@ -130,12 +130,17 @@ function isLineToClear(y){
         return pieceColor !== colorInCurrentRow;
     })
     if(isRowValid.length !== 0 ){
-        return;
+        return false;
     }
     /**
      * Row to clear detected so modify virtualBoard
      * -- remove row to be cleared
      */
+    const piecesToBeRemoved = virtualBoard.filter((piece)=>{
+        const pieceTranslateY = parseInt(piece.style.transform.slice(11,14).trim());
+        return pieceTranslateY === y;
+    });
+
     const newVirtualBoard = virtualBoard.filter((piece)=>{
         const pieceTranslateY = parseInt(piece.style.transform.slice(11,14).trim());
         return pieceTranslateY !== y;
@@ -147,7 +152,13 @@ function isLineToClear(y){
     /**
      * Virtual Row is cleared but screen view is not refreshed
      */
-    console.log('row to clear detected');
+    /**
+     * Affect view
+     */
+    piecesToBeRemoved.forEach((pieceToRemove)=>{
+       removePiece(pieceToRemove, board);
+    });
+    return true;
 }
 /**
  * Run animation
@@ -223,7 +234,7 @@ function runPieceAnimation(piece, delay= 100, boardInfo = null){
             /**
              * Check clearing LINE condition
              */
-            isLineToClear(y);
+            const lineCleared = isLineToClear(y, board);
 
 
             if(cycle < 50){
@@ -232,7 +243,11 @@ function runPieceAnimation(piece, delay= 100, boardInfo = null){
                 //console.log(virtualBoard);
             }
             cycle++;
-            score++;
+            if(lineCleared){
+                score += 10;
+            }else{
+                score++;
+            }
             scoreHook.innerText = `${score}`;
         }
         piece.style.transform = `translateY(${y}px)`;
@@ -275,7 +290,7 @@ function mainThread(){
     const board = setupBoard(boardWidth);
     const piece = createPiece(generateId(), boardWidth);
     appendPiece(piece, board);
-    runPieceAnimation(piece, 10, board);
+    runPieceAnimation(piece, 300, board);
 
 
 }
