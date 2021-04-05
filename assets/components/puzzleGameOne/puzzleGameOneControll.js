@@ -237,7 +237,7 @@ function runPieceAnimation(piece, delay= 100, boardInfo = null){
             const lineCleared = isLineToClear(y, board);
 
 
-            if(cycle < 50){
+            if(cycle < 1000){
                 mainThread();
             }else{
                 //console.log(virtualBoard);
@@ -290,7 +290,7 @@ function mainThread(){
     const board = setupBoard(boardWidth);
     const piece = createPiece(generateId(), boardWidth);
     appendPiece(piece, board);
-    runPieceAnimation(piece, 300, board);
+    runPieceAnimation(piece, 100, board);
 
 
 }
