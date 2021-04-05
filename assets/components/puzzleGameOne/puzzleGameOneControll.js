@@ -169,6 +169,7 @@ function runPieceAnimation(piece, delay= 100){
         const bottom = checkMaxMovementAllowed(piece, currentBottom);
         //console.log(virtualBoard);
         if(y >= (bottom + 2*pieceMargin - pieceHeight)){
+            //console.log(bottom);
             piece.style.transform = `translateY(${y}px)`;
             virtualBoard.push(piece);
             clearInterval(animPiece);
@@ -177,7 +178,7 @@ function runPieceAnimation(piece, delay= 100){
              */
 
 
-            if(cycle < 1000){
+            if(cycle < 200){
                 mainThread();
             }else{
                 //console.log(virtualBoard);
@@ -207,13 +208,15 @@ function checkMaxMovementAllowed(currentPiece, currentBottom){
     //console.log(piecesOnWay);
     const rowToTop = [];
     piecesOnWay.forEach((piece)=>{
-        const pieceTop = parseInt(piece.style.transform.slice(11, 14));
+        let pieceTop = parseInt(piece.style.transform.trim().slice(11, 14));
         rowToTop.push(pieceTop);
     });
     //console.log(rowToTop);
     if(rowToTop.length > 0){
-        rowToTop.sort();
-       return rowToTop[0] - currentHeight - 2 * currentMargin;
+        rowToTop.sort((a,b)=>a-b);
+        if(rowToTop.length > 7){
+        }
+       return rowToTop[0] - (currentHeight - 2 * currentMargin);
     }
 
     return currentBottom;
@@ -224,7 +227,7 @@ function mainThread(){
     const board = setupBoard(boardWidth);
     const piece = createPiece(generateId(), boardWidth);
     appendPiece(piece, board);
-    runPieceAnimation(piece, 600);
+    runPieceAnimation(piece, 10);
 
 
 }
