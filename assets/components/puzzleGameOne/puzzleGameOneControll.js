@@ -14,7 +14,6 @@ function createPiece(id, currentBoardWidth = 200){
     for(start = 0;start < currentBoardWidth ;start += pieceStep){
         rowPosition.push(start);
     }
-
     piece = document.createElement('div');
     piece.id = `${id}`;
     piece.style.position = 'absolute';
@@ -22,7 +21,11 @@ function createPiece(id, currentBoardWidth = 200){
     piece.style.height = `${pieceSide}px`;
     piece.style.margin = `${pieceMargin}px`;
     piece.style.border = `1px solid #222`;
-    const currentColor = colors[Math.floor(Math.random()*4)];
+    /**
+     * Temporarily generate only one color
+     */
+    const currentColor = colors[0];
+    //const currentColor = colors[Math.floor(Math.random()*4)];
     if(currentColor === '#000'){piece.style.border = `1px solid #aaa`;}
     piece.style.backgroundImage = `radial-gradient( #777 ,${currentColor} )`;
     //piece.style.backgroundColor = `${colors[Math.floor(Math.random()*5)]}`;
@@ -111,7 +114,16 @@ function isLineToClear(y){
     if(rowInBoard.length < 12){
         return;
     }
-    console.log(rowInBoard);
+    //const rowInBoard
+    const colorInCurrentRow = rowInBoard[0].getAttribute('name');
+    const isRowValid = rowInBoard.filter((piece)=>{
+        const pieceColor = piece.getAttribute('name');
+        return pieceColor !== colorInCurrentRow;
+    })
+    if(isRowValid.length !== 0 ){
+        return;
+    }
+    console.log('row to clear detected');
 }
 /**
  * Run animation
@@ -143,6 +155,7 @@ function runPieceAnimation(piece, delay= 100, boardInfo = null){
             }
             const newColor = colorFromMode[chosen];
             piece.style.backgroundImage = `radial-gradient( #777 ,${newColor} )`;
+            piece.setAttribute('name',newColor);
             changeColor = false;
             chosen++;
         }
