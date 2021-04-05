@@ -47,6 +47,15 @@ function createPiece(id, currentBoardWidth = 200){
 function appendPiece(piece, location){
     location.appendChild(piece);
 }
+
+/**
+ * Remove piece from board
+ * @param piece
+ * @param location
+ */
+function removePiece(piece, location){
+    location.removeChild(piece);
+}
 /**
  * Setup board
  * @param boardWidth
@@ -123,6 +132,21 @@ function isLineToClear(y){
     if(isRowValid.length !== 0 ){
         return;
     }
+    /**
+     * Row to clear detected so modify virtualBoard
+     * -- remove row to be cleared
+     */
+    const newVirtualBoard = virtualBoard.filter((piece)=>{
+        const pieceTranslateY = parseInt(piece.style.transform.slice(11,14).trim());
+        return pieceTranslateY !== y;
+    })
+    virtualBoard = [];
+    newVirtualBoard.forEach((newPiece)=>{
+        virtualBoard.push(newPiece);
+    })
+    /**
+     * Virtual Row is cleared but screen view is not refreshed
+     */
     console.log('row to clear detected');
 }
 /**
