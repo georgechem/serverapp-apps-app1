@@ -53,8 +53,9 @@ body {
     }
   }
   &__board{
+    border: 1px dashed #aaa;
     position: relative;
-    background-color: #444;
+    //background-color: #444;
     border-radius: 5px;
   }
   &__btn{

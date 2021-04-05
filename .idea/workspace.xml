@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3cf66441-0f0c-46c0-b7d2-caa3439d480c" name="Default Changelist" comment="ok">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/puzzleGameOneControll.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/puzzleGameOneControll.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,14 +179,7 @@
       <workItem from="1617347236233" duration="1838000" />
       <workItem from="1617432168065" duration="12620000" />
       <workItem from="1617522935633" duration="21186000" />
-      <workItem from="1617610057938" duration="11657000" />
-    </task>
-    <task id="LOCAL-00061" summary="ok">
-      <created>1617453238374</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1617453238374</updated>
+      <workItem from="1617610057938" duration="11767000" />
     </task>
     <task id="LOCAL-00062" summary="ok">
       <created>1617453897088</created>
@@ -523,7 +517,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617624256639</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL-00110" summary="filling to top">
+      <created>1617651470715</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1617651470715</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
